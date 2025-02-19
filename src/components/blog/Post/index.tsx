@@ -1,96 +1,74 @@
 'use client'
 
-import { type BlogPost } from '@/types/blog'
-import { blogPosts } from '@/data/blogs'
-import TableOfContents from '../TableOfContents'
-import RelatedPosts from '../RelatedPosts'
-import PostImage from '../PostImage'
-import PostContent from '../PostContent'
-import PostHeader from '../PostHeader'
-import PostFooter from '../PostFooter'
-import PostReadingProgress from '../PostReadingProgress'
-import Container from '@/components/common/Container'
+import PostContainer from '../PostContainer'
+import { type PostProps, type PostContainerProps } from '../PostTypes'
+import { usePostConfig, usePostMetadata } from '../PostHooks'
 
-interface BlogPostProps {
-  post: BlogPost
-  showProgress?: boolean
-  showTableOfContents?: boolean
-  showRelatedPosts?: boolean
-  className?: string
-}
-
-const BlogPostComponent = ({ 
+/**
+ * Blog Post Component
+ * 
+ * A flexible and configurable blog post component that supports different
+ * display variants and custom configurations. Handles post metadata,
+ * navigation, sharing, and feature configuration.
+ * 
+ * Features:
+ * - Multiple display variants (default, compact, minimal)
+ * - Configurable features (progress bar, table of contents, etc.)
+ * - Automatic metadata handling
+ * - Post navigation
+ * - Social sharing
+ * - View tracking
+ * - Like functionality
+ * 
+ * @example
+ * // Default variant
+ * <Post post={post} />
+ * 
+ * // Compact variant with base URL
+ * <Post 
+ *   post={post} 
+ *   variant="compact"
+ *   baseUrl="https://example.com"
+ * />
+ * 
+ * // Custom configuration
+ * <Post 
+ *   post={post} 
+ *   config={{
+ *     progress: false,
+ *     relatedPosts: true,
+ *     tableOfContents: false
+ *   }}
+ * />
+ */
+const Post = ({ 
   post,
-  showProgress = true,
-  showTableOfContents = true,
-  showRelatedPosts = true,
+  variant = 'default',
+  config,
+  baseUrl = '',
   className = ''
-}: BlogPostProps) => {
-  return (
-    <>
-      {/* Reading Progress */}
-      {showProgress && (
-        <PostReadingProgress 
-          showPercentage
-          height={3}
-        />
-      )}
+}: PostProps) => {
+  // Get config and feature status
+  const { config: finalConfig, hasEnabledFeatures } = usePostConfig(variant, config)
 
-      <div className={`space-y-12 ${className}`}>
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Main Content */}
-          <article className="flex-1 min-w-0">
-            {/* Post Header */}
-            <PostHeader 
-              post={post} 
-              className="mb-8"
-              spacing="lg"
-            />
+  // Get sharing and navigation data
+  const { sharing, navigation } = usePostMetadata(post, baseUrl, [])
 
-            {/* Featured Image */}
-            <div className="mb-8">
-              <PostImage
-                src={post.imageUrl}
-                alt={post.title}
-                aspectRatio="video"
-                priority
-                blur
-              />
-            </div>
+  // Don't render if no features are enabled
+  if (!hasEnabledFeatures) {
+    return null
+  }
 
-            {/* Post Content */}
-            <PostContent content={post.content} />
+  const containerProps: PostContainerProps = {
+    post,
+    config: finalConfig,
+    sharing,
+    navigation,
+    className
+  }
 
-            {/* Post Footer */}
-            <PostFooter 
-              post={post} 
-              className="mt-12"
-            />
-          </article>
-
-          {/* Table of Contents Sidebar */}
-          {showTableOfContents && (
-            <aside className="hidden lg:block w-64 flex-shrink-0">
-              <div className="sticky top-24">
-                <TableOfContents />
-              </div>
-            </aside>
-          )}
-        </div>
-
-        {/* Related Posts */}
-        {showRelatedPosts && (
-          <Container size="lg" className="border-t pt-12">
-            <RelatedPosts 
-              currentPost={post}
-              posts={blogPosts}
-              maxPosts={3}
-            />
-          </Container>
-        )}
-      </div>
-    </>
-  )
+  return <PostContainer {...containerProps} />
 }
 
-export default BlogPostComponent
+// Prevent unnecessary re-renders
+export default Post
