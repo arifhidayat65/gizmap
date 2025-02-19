@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   output: 'export',
-  swcMinify: true,
   distDir: '.next'
 };
 

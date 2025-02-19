@@ -9,6 +9,16 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = []; // ESLint is disabled
+const eslintConfig = [
+  // ESLint configuration for Next.js
+  compat.config({
+    extends: [
+      "next/core-web-vitals", // Use Next.js recommended rules
+    ],
+    rules: {
+      // Add any custom rules here
+    },
+  }),
+];
 
 export default eslintConfig;
