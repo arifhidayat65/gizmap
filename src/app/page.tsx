@@ -2,8 +2,7 @@ import HeroSlider from '../components/HeroSlider'
 
 export default function Home() {
   return (
-    <>
-      <main className="container mx-auto p-4">
+    <div className="container-fluid px-0 pt-20">
         {/* Hero Section */}
         <section className="mb-4">
           <HeroSlider />
@@ -113,7 +112,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-      </main>
-    </>
+    </div>
   );
 }
