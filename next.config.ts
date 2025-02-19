@@ -5,8 +5,9 @@ const nextConfig: NextConfig = {
     domains: ['storage.googleapis.com'],
     unoptimized: true,
   },
-  output: 'standalone',
+  output: 'export',
   swcMinify: true,
+  distDir: '.next'
 };
 
 export default nextConfig;

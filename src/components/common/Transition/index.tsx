@@ -80,7 +80,7 @@ const Transition = ({
 
   if (!isRendered) return null
 
-  const { base, initial, enter, exit } = getTransitionClasses(name)
+  const { base, initial, enter } = getTransitionClasses(name)
   const transitionStyle = {
     transitionDuration: `${duration}ms`,
     transitionDelay: `${delay}ms`

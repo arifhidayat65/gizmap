@@ -1,15 +1,19 @@
 'use client'
 
+import Image from 'next/image'
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-white to-gray-100 mt-8">
       <div className="container mx-auto py-12 px-4">
         {/* Logo and Description */}
         <div className="text-center mb-12">
-          <img 
+          <Image 
             src="https://storage.googleapis.com/a1aa/image/VxpCM8raYpdarrf1ddTz3040jv18FvFiXSWIPqb1-GQ.jpg"
             alt="GizMap logo"
-            className="h-12 mx-auto mb-4"
+            width={48}
+            height={48}
+            className="h-12 w-auto mx-auto mb-4"
           />
           <p className="text-gray-600 max-w-2xl mx-auto">
             Platform layanan service terpercaya untuk perangkat elektronik Anda. Kami menghubungkan Anda dengan teknisi profesional terbaik.

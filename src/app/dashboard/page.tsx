@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function DashboardPage() {
   return (
     <div>
@@ -99,10 +101,12 @@ export default function DashboardPage() {
           </div>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <img
+              <Image
                 src="https://storage.googleapis.com/a1aa/image/JyENFRoFerJOhWkpawI2rGfpiWY0yyrpg8i0UB5VDbc.jpg"
                 alt="Podcast 1"
-                className="w-16 h-16 rounded-lg object-cover"
+                width={64}
+                height={64}
+                className="rounded-lg object-cover"
               />
               <div className="flex-grow">
                 <h3 className="font-medium text-gray-800">Tech Repair Tips: iPhone Screen Replacement</h3>
@@ -113,10 +117,12 @@ export default function DashboardPage() {
               </button>
             </div>
             <div className="flex items-center gap-4">
-              <img
+              <Image
                 src="https://storage.googleapis.com/a1aa/image/TbdNjjExjCdLuS2M99d2cK9TzFngXOZ32P5tu32MG5U.jpg"
                 alt="Podcast 2"
-                className="w-16 h-16 rounded-lg object-cover"
+                width={64}
+                height={64}
+                className="rounded-lg object-cover"
               />
               <div className="flex-grow">
                 <h3 className="font-medium text-gray-800">Smart TV Troubleshooting Guide</h3>
@@ -127,10 +133,12 @@ export default function DashboardPage() {
               </button>
             </div>
             <div className="flex items-center gap-4">
-              <img
+              <Image
                 src="https://storage.googleapis.com/a1aa/image/3W83ec0Kc18xKnWXJige0Hhw_WjkWOdteS_Db7FtcsM.jpg"
                 alt="Podcast 3"
-                className="w-16 h-16 rounded-lg object-cover"
+                width={64}
+                height={64}
+                className="rounded-lg object-cover"
               />
               <div className="flex-grow">
                 <h3 className="font-medium text-gray-800">Gaming Console Maintenance 101</h3>

@@ -8,8 +8,8 @@ import { filterPosts, paginatePosts } from '@/utils/blog'
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([])
-  const [layout, setLayout] = useState<'grid' | 'list'>('grid')
-  const [currentPage, setCurrentPage] = useState(1)
+  const [layout] = useState<'grid' | 'list'>('grid')
+  const [currentPage] = useState(1)
 
   useEffect(() => {
     // Initialize with all posts

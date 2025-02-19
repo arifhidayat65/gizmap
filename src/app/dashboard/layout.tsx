@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function DashboardLayout({
   children,
@@ -11,10 +12,12 @@ export default function DashboardLayout({
       {/* Sidebar */}
       <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg">
         <div className="p-4 border-b">
-          <img 
+          <Image 
             src="https://storage.googleapis.com/a1aa/image/iXtFY1DZexD4cqlIXBWX512jh_Z5X7WhF_f1VWTwmXw.jpg"
             alt="GizMap logo"
-            className="h-8"
+            width={32}
+            height={32}
+            className="h-8 w-auto"
           />
         </div>
         <nav className="mt-4 px-2">

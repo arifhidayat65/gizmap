@@ -161,7 +161,7 @@ export default function AboutUsPage() {
       <section className="text-center">
         <h2 className="text-3xl font-bold mb-4 text-primary">Get in Touch</h2>
         <p className="text-xl text-neutral-600 mb-8">
-          Have questions? We'd love to hear from you.
+          Have questions? We&apos;d love to hear from you.
         </p>
         <a 
           href="mailto:contact@gizmap.com"

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { podcasts } from '../../../data/podcasts';
 import { Podcast } from '../../../types/podcast';
 import PodcastPlayer from '../../../components/dashboard/PodcastPlayer';
@@ -79,9 +80,11 @@ export default function PodcastPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {podcasts.map((podcast) => (
             <div key={podcast.id} className="relative group">
-              <img
+              <Image
                 src={podcast.thumbnailUrl}
                 alt={podcast.title}
+                width={300}
+                height={192}
                 className="w-full h-48 object-cover rounded-lg"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">

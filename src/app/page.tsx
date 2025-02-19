@@ -1,4 +1,5 @@
 import HeroSlider from '../components/HeroSlider'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -57,36 +58,36 @@ export default function Home() {
           <h2 className="text-xl font-bold mb-2">Sedang Ada Promo & Diskon Terdekat</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-white p-4 rounded-lg shadow-md">
-              <img
+              <Image
                 src="https://storage.googleapis.com/a1aa/image/imf-iNZsYZmyZ0nR2fMSBEtX9rOSe_pbyEl4l-cSgOw.jpg"
                 alt="Repairing a smartphone"
-                className="w-full h-40 object-cover mb-2"
                 width={300}
-                height={200}
+                height={160}
+                className="w-full h-40 object-cover mb-2"
               />
               <h3 className="text-blue-500">Repair Smartphone</h3>
               <p className="font-bold">iRoom Bandung</p>
               <p className="text-gray-500">(143)</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-md">
-              <img
+              <Image
                 src="https://storage.googleapis.com/a1aa/image/GVPc_xDNdgiET3nzJ_ihVkNUKMClLVCSGVXx0ksh93Q.jpg"
                 alt="Repairing a smart TV"
-                className="w-full h-40 object-cover mb-2"
                 width={300}
-                height={200}
+                height={160}
+                className="w-full h-40 object-cover mb-2"
               />
               <h3 className="text-blue-500">Repair Smart TV</h3>
               <p className="font-bold">iService Bandung</p>
               <p className="text-gray-500">(110)</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-md">
-              <img
+              <Image
                 src="https://storage.googleapis.com/a1aa/image/74P3KoQmVF6tgADp92h2YcMn1g0dPplaVY5PYmkySNY.jpg"
                 alt="Repairing a console"
-                className="w-full h-40 object-cover mb-2"
                 width={300}
-                height={200}
+                height={160}
+                className="w-full h-40 object-cover mb-2"
               />
               <h3 className="text-blue-500">Repair Console</h3>
               <p className="font-bold">iServices Bandung</p>
@@ -101,12 +102,12 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
             {[...Array(6)].map((_, index) => (
               <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-                <img
+                <Image
                   src="https://storage.googleapis.com/a1aa/image/mUGNU0QLwo5jleKDzpCnBkHiB_nlHJXHSZctJj711Wk.jpg"
                   alt="Podcast recording"
-                  className="w-full h-24 object-cover mb-2"
                   width={150}
-                  height={100}
+                  height={96}
+                  className="w-full h-24 object-cover mb-2"
                 />
               </div>
             ))}

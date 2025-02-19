@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { Podcast } from '../../types/podcast';
 
 interface PodcastPlayerProps {
@@ -71,10 +72,12 @@ export default function PodcastPlayer({ podcast }: PodcastPlayerProps) {
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-4">
           <div className="flex-shrink-0 w-12 h-12 relative">
-            <img
+            <Image
               src={podcast.thumbnailUrl}
               alt={podcast.title}
-              className="rounded-lg object-cover w-full h-full"
+              width={48}
+              height={48}
+              className="rounded-lg object-cover"
             />
           </div>
           <div className="flex-grow">
