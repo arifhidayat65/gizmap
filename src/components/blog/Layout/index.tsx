@@ -1,19 +1,18 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { type BlogLayoutProps, type BlogCategory } from '@/types/blog'
+import { type BlogLayoutProps, type BlogCategory } from '../../../types/blog'
 import BlogNavigation from '../Navigation'
 import BlogSidebar from '../Sidebar'
-import Container from '@/components/common/Container'
-import ScrollArea from '@/components/common/ScrollArea'
-import Transition from '@/components/common/Transition'
-import Progress from '@/components/common/Progress'
-import { BLOG_CATEGORIES } from '@/constants/blog'
-import { getRecentPosts, getPopularTags } from '@/utils/blog'
-import { blogPosts } from '@/data/blogs'
+import Container from '../../common/Container'
+import ScrollArea from '../../common/ScrollArea'
+import Transition from '../../common/Transition'
+import Progress from '../../common/Progress'
+import { BLOG_CATEGORIES } from '../../../constants/blog'
+import { getRecentPosts, getPopularTags, filterPosts } from '../../../utils/blog'
+import { blogPosts } from '../../../data/blogs'
 
 const BlogLayout = ({ children }: BlogLayoutProps) => {
-  const [searchQuery, setSearchQuery] = useState('')
   const [currentCategory, setCurrentCategory] = useState<BlogCategory['id']>(BLOG_CATEGORIES[0].id)
   const [isLoaded, setIsLoaded] = useState(false)
   
@@ -27,13 +26,14 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
   }, [])
 
   const handleSearch = (query: string) => {
-    setSearchQuery(query)
-    // Handle search functionality
+    // Filter posts based on search query
+    const filteredPosts = filterPosts(blogPosts, { search: query })
+    // You can update the UI or pass the filtered posts to children components
+    console.log('Search query:', query, 'Filtered posts:', filteredPosts)
   }
 
   const handleCategoryChange = (categoryId: BlogCategory['id']) => {
     setCurrentCategory(categoryId)
-    // Handle category change
   }
 
   return (

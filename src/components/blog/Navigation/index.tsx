@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { type BlogNavigationProps } from '@/types/blog'
+import { type BlogNavigationProps } from '../../../types/blog'
 
 const BlogNavigation = ({ 
-  currentCategory = 'all',
+  currentCategory,
   onSearch,
   onCategoryChange 
 }: BlogNavigationProps) => {

@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { formatPublishDate, formatReadTime } from '@/utils/blog'
-import { type BlogCardProps } from '@/types/blog'
+import { type BlogCardProps } from '../types/blog'
 
 const BlogCard = ({ post, variant = 'default' }: BlogCardProps) => {
   const formatDate = (date: string) => {

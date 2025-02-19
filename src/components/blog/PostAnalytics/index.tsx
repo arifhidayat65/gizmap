@@ -1,12 +1,22 @@
 'use client'
 
 import { useEffect } from 'react'
-import { type BlogPost } from '@/types/blog'
+import { type BlogPost } from '../../../types/blog'
 
 interface PostAnalyticsProps {
   post: BlogPost
   variant?: string
   enabled?: boolean
+}
+
+interface GtagParams {
+  page_title?: string
+  page_path?: string
+  post_id?: string
+  post_category?: string
+  post_variant?: string
+  time_seconds?: number
+  depth_percent?: number
 }
 
 // Add Google Analytics types
@@ -15,9 +25,7 @@ declare global {
     gtag?: (
       command: 'event',
       action: string,
-      params: {
-        [key: string]: any
-      }
+      params: GtagParams
     ) => void
   }
 }

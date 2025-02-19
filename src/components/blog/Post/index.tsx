@@ -11,50 +11,8 @@ import PostDebug from '../PostDebug'
 import { type PostProps, type PostContainerProps } from '../PostTypes'
 import { usePostConfig, usePostMetadata } from '../PostHooks'
 import { ERROR_MESSAGES } from '../PostConstants'
-import { Button } from '@/components/common/Button'
+import { Button } from '../../common/Button'
 
-/**
- * Blog Post Component
- * 
- * A flexible and configurable blog post component that supports different
- * display variants and custom configurations. Handles post metadata,
- * navigation, sharing, analytics, SEO, performance, debugging, and error handling.
- * 
- * Features:
- * - Multiple display variants (default, compact, minimal)
- * - Configurable features (progress bar, table of contents, etc.)
- * - Automatic metadata handling
- * - Post navigation
- * - Social sharing
- * - View tracking
- * - Like functionality
- * - Error handling and recovery
- * - Analytics tracking
- * - SEO optimization
- * - Performance optimizations
- * - Development debugging
- * 
- * @example
- * // Default variant
- * <Post post={post} />
- * 
- * // Compact variant with base URL
- * <Post 
- *   post={post} 
- *   variant="compact"
- *   baseUrl="https://example.com"
- * />
- * 
- * // Custom configuration
- * <Post 
- *   post={post} 
- *   config={{
- *     progress: false,
- *     relatedPosts: true,
- *     tableOfContents: false
- *   }}
- * />
- */
 const PostContent = ({ 
   post,
   variant = 'default',
@@ -62,7 +20,16 @@ const PostContent = ({
   baseUrl = '',
   className = ''
 }: PostProps) => {
-  // Validate required props
+  // Get config and feature status
+  const { config: finalConfig, hasEnabledFeatures } = usePostConfig(variant, {
+    ...config,
+    animate: config?.animate ?? true
+  })
+
+  // Get sharing and navigation data
+  const { sharing, navigation } = usePostMetadata(post, baseUrl)
+
+  // Early returns after hooks
   if (!post) {
     return (
       <PostError 
@@ -80,16 +47,6 @@ const PostContent = ({
     )
   }
 
-  // Get config and feature status
-  const { config: finalConfig, hasEnabledFeatures } = usePostConfig(variant, {
-    ...config,
-    animate: config?.animate ?? true
-  })
-
-  // Get sharing and navigation data
-  const { sharing, navigation } = usePostMetadata(post, baseUrl)
-
-  // Don't render if no features are enabled
   if (!hasEnabledFeatures) {
     return (
       <PostError 

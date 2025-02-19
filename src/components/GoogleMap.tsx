@@ -2,11 +2,21 @@
 
 import { useEffect, useRef } from 'react'
 
-declare global {
-  interface Window {
-    google: any;
-    initMap: () => void;
-  }
+interface MapOptions {
+  zoom: number;
+  center: { lat: number; lng: number };
+  mapId?: string;
+  styles?: Array<{
+    featureType: string;
+    elementType: string;
+    stylers: Array<{ [key: string]: string }>;
+  }>;
+}
+
+interface MarkerOptions {
+  position: { lat: number; lng: number };
+  map: unknown;
+  title?: string;
 }
 
 const GoogleMap = () => {
@@ -14,12 +24,12 @@ const GoogleMap = () => {
 
   useEffect(() => {
     // Initialize the map
-    window.initMap = () => {
-      if (mapRef.current) {
+    const initMap = () => {
+      if (mapRef.current && window.google) {
         // Coordinates for Jakarta (example location)
         const location = { lat: -6.2088, lng: 106.8456 }
         
-        const map = new window.google.maps.Map(mapRef.current, {
+        const mapOptions: MapOptions = {
           zoom: 15,
           center: location,
           mapId: 'YOUR_MAP_ID', // Optional: for styled maps
@@ -40,16 +50,22 @@ const GoogleMap = () => {
               stylers: [{ color: "#746855" }]
             }
           ]
-        })
+        }
+
+        const map = new window.google.maps.Map(mapRef.current, mapOptions)
 
         // Add a marker
-        new window.google.maps.Marker({
+        const markerOptions: MarkerOptions = {
           position: location,
           map: map,
           title: "GizMap Headquarters"
-        })
+        }
+        new window.google.maps.Marker(markerOptions)
       }
     }
+
+    // Assign initMap to window object
+    window.initMap = initMap
 
     // Load Google Maps script
     const script = document.createElement('script')
