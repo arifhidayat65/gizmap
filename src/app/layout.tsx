@@ -1,8 +1,8 @@
 import './globals.scss'
 import './styles/custom.css'
-import Header from '../components/layouts/Header'
-import Footer from '../components/layouts/Footer'
-import BackToTop from '../components/layouts/BackToTop'
+import Header from '../components/common/layouts/Header'
+import Footer from '../components/common/layouts/Footer'
+import BackToTop from '../components/common/layouts/BackToTop'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 
