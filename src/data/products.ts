@@ -32,27 +32,27 @@ export const products: Product[] = [
 
 export const serviceCategories = [
   {
-    icon: 'mobile-alt',
+    icon: 'fa-mobile-alt',
     name: 'Service Smartphone'
   },
   {
-    icon: 'laptop',
+    icon: 'fa-laptop',
     name: 'Service Laptop / PC'
   },
   {
-    icon: 'tv',
+    icon: 'fa-tv',
     name: 'Service LED / Smart TV'
   },
   {
-    icon: 'gamepad',
+    icon: 'fa-gamepad',
     name: 'Service Consol'
   },
   {
-    icon: 'phone',
+    icon: 'fa-phone',
     name: 'Service Alat Komunikasi'
   },
   {
-    icon: 'ellipsis-h',
+    icon: 'fa-ellipsis-h',
     name: 'Service Alat Lainnya'
   }
 ];

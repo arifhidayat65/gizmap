@@ -1,9 +1,9 @@
 import './globals.scss'
-import './styles/custom.css'
-import './styles/buttons.css'
-import Header from '../components/common/layouts/Header'
-import Footer from '../components/common/layouts/Footer'
-import BackToTop from '../components/common/layouts/BackToTop'
+import '../styles/custom.css'
+import '../styles/buttons.css'
+import Header from '../components/layout/Header'
+import Footer from '../components/layout/Footer/Footer'
+import BackToTop from '../components/BackToTop'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 
@@ -31,6 +31,10 @@ export default function RootLayout({
         />
         <link 
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           rel="stylesheet"
         />
         <Script

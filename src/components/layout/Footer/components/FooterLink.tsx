@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ServiceIcon from '../Icon/ServiceIcon';
+import ServiceIcon from '@/components/common/Icon/ServiceIcon';
 
 interface FooterLinkProps {
   href: string;

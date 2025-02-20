@@ -1,134 +1,128 @@
+// Import home page styles
+@use '../styles/home.scss' as home;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-// Bootstrap custom styles
-.ec-bg-neutral-100 {
-  background-color: #f8f9fa;
+:root {
+  --primary-color: #22c55e;
+  --secondary-color: #0ea5e9;
+  --text-color: #1f2937;
+  --background-color: #ffffff;
 }
 
-.ec-bg-primary-500 {
-  background-color: #0d6efd;
+html {
+  scroll-behavior: smooth;
 }
 
-.ec-neutral-50 {
-  color: #fff;
+body {
+  color: var(--text-color);
+  background: var(--background-color);
+  font-family: 'Inter', sans-serif;
 }
 
-.ec-secondary-500 {
-  color: #6c757d;
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-// Mega menu styles
-.wrapper-mega-menu {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 100%;
-  z-index: 1000;
-  padding: 1rem;
-  background-color: #f8f9fa;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+// Common utility classes
+.section-padding {
+  @apply py-16 md:py-24;
 }
 
-.card-megamenu {
-  transition: all 0.3s ease;
-  &:hover {
-    background-color: #f0f0f0;
+.section-title {
+  @apply text-3xl md:text-4xl font-bold text-center mb-12;
+}
+
+// Animation classes
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Responsive font sizes
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl font-semibold;
 }
 
 // Button styles
-.ec-btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
-  
-  &:hover {
-    opacity: 0.9;
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300;
+
+  &-primary {
+    @apply bg-green-500 text-white hover:bg-green-600;
+  }
+
+  &-secondary {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+  }
+
+  &-outline {
+    @apply border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white;
   }
 }
 
-.ec-btn-rounded {
-  border-radius: 50px;
+// Card styles
+.card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300;
 }
 
-.ec-btn-md {
-  padding: 0.5rem 1.5rem;
+// Grid layouts
+.grid-auto-fit {
+  @apply grid gap-6;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-// Link styles
-.link-nostyle {
-  text-decoration: none;
-  color: inherit;
+// Image styles
+.img-cover {
+  @apply object-cover w-full h-full;
+}
+
+// Icon styles
+.icon {
+  @apply inline-flex items-center justify-center;
   
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-.font-menu {
-  font-weight: 500;
-}
-
-// Row and Column styles
-.ec-row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -0.5rem;
-  margin-left: -0.5rem;
-}
-
-.ec-col-2 {
-  flex: 0 0 16.666667%;
-  max-width: 16.666667%;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-.ec-col-10 {
-  flex: 0 0 83.333333%;
-  max-width: 83.333333%;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-.ec-col-12 {
-  flex: 0 0 100%;
-  max-width: 100%;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-// Navigation styles
-.nav-link {
-  color: #333;
-  transition: color 0.2s ease-in-out;
-  
-  &:hover {
-    color: #0d6efd;
-  }
-}
-
-.mega-menu {
-  position: relative;
-  cursor: pointer;
-}
-
-// Responsive styles
-@media (max-width: 991.98px) {
-  .wrapper-mega-menu {
-    position: static;
-    box-shadow: none;
+  &-sm {
+    @apply w-8 h-8;
   }
   
-  .ec-col-2,
-  .ec-col-10 {
-    flex: 0 0 100%;
-    max-width: 100%;
+  &-md {
+    @apply w-12 h-12;
+  }
+  
+  &-lg {
+    @apply w-16 h-16;
   }
 }

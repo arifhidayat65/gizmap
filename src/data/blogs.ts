@@ -8,11 +8,11 @@ export const blogPosts: BlogPost[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     author: {
       name: 'John Doe',
-      avatar: '/assets/image/authors/john-doe.jpg',
+      avatar: '/assets/images/austin-distel-Hg3BHX6U5jg-unsplash.jpg',
       role: 'Technical Writer'
     },
     publishedAt: '2023-12-01T08:00:00Z',
-    imageUrl: '/assets/image/blog/laptop-maintenance.jpg',
+    imageUrl: '/assets/images/IT-repairing-the-broken-computer-768x513.jpeg',
     category: 'maintenance',
     tags: ['laptop', 'maintenance', 'tips'],
     readTime: 5,
@@ -26,11 +26,11 @@ export const blogPosts: BlogPost[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     author: {
       name: 'Jane Smith',
-      avatar: '/assets/image/authors/jane-smith.jpg',
+      avatar: '/assets/images/cowomen-UUPpu2sYV6E-unsplash.jpg',
       role: 'System Engineer'
     },
     publishedAt: '2023-12-02T10:30:00Z',
-    imageUrl: '/assets/image/blog/blue-screen.jpg',
+    imageUrl: '/assets/images/juja-han-uT55XxQLQGU-unsplash.jpg',
     category: 'troubleshooting',
     tags: ['windows', 'troubleshooting', 'BSOD'],
     readTime: 8,
@@ -44,11 +44,11 @@ export const blogPosts: BlogPost[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     author: {
       name: 'Mike Johnson',
-      avatar: '/assets/image/authors/mike-johnson.jpg',
+      avatar: '/assets/images/juja-han-uT55XxQLQGU-unsplash.jpg',
       role: 'IT Specialist'
     },
     publishedAt: '2023-12-03T14:15:00Z',
-    imageUrl: '/assets/image/blog/windows-11.jpg',
+    imageUrl: '/assets/images/kit-formerly-convertkit-BOI9jki3nzY-unsplash.jpg',
     category: 'guide',
     tags: ['windows', 'installation', 'guide'],
     readTime: 10,

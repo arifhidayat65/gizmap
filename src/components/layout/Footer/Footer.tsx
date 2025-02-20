@@ -1,10 +1,9 @@
 'use client'
 
-import CompanyInfo from './CompanyInfo'
-import QuickLinks from './QuickLinks'
-import ServiceLinks from './ServiceLinks'
-import ContactInfo from './ContactInfo'
-import Copyright from './Copyright'
+import CompanyInfo from './sections/CompanyInfo'
+import QuickLinks from './sections/QuickLinks'
+import ServiceLinks from './sections/ServiceLinks'
+import ContactInfo from './sections/ContactInfo'
 
 const Footer = () => {
   return (
@@ -16,7 +15,6 @@ const Footer = () => {
           <ServiceLinks />
           <ContactInfo />
         </div>
-        <Copyright />
       </div>
     </footer>
   )

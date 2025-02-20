@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import SocialIcon from '../Icon/SocialIcon'
-import { socialIcons } from '@/constants/footer'
+import SocialIcon from '../../../common/Icon/SocialIcon'
+import { socialIcons } from '../../../../constants/footer'
 
 const CompanyInfo = () => (
   <div className="col-span-1">

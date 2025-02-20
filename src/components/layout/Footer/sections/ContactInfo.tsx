@@ -1,5 +1,7 @@
-import ServiceIcon from '../Icon/ServiceIcon'
-import FooterSection from './FooterSection'
+'use client'
+
+import ServiceIcon from '@/components/common/Icon/ServiceIcon'
+import FooterSection from '../components/FooterSection'
 import { contactInfo } from '@/constants/footer'
 
 const ContactInfo = () => (
@@ -27,6 +29,6 @@ const ContactInfo = () => (
       ))}
     </ul>
   </FooterSection>
-);
+)
 
-export default ContactInfo;
+export default ContactInfo
