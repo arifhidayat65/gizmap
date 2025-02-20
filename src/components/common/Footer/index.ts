@@ -1,0 +1,8 @@
+export { default } from './Footer'
+export { default as CompanyInfo } from './CompanyInfo'
+export { default as QuickLinks } from './QuickLinks'
+export { default as ServiceLinks } from './ServiceLinks'
+export { default as ContactInfo } from './ContactInfo'
+export { default as Copyright } from './Copyright'
+export { default as FooterSection } from './FooterSection'
+export { default as FooterLink } from './FooterLink'
