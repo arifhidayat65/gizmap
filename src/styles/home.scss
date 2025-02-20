@@ -7,19 +7,23 @@
   }
 }
 
-.service-card {
-  @apply bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300;
-  
-  &:hover {
-    @apply transform -translate-y-1;
-  }
+.service-categories {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6;
 
-  .icon {
-    @apply text-3xl text-green-500 mb-4;
-  }
+  .category-card {
+    @apply bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 text-center cursor-pointer;
 
-  .title {
-    @apply text-lg font-semibold text-gray-800;
+    &:hover {
+      @apply transform -translate-y-1;
+    }
+
+    .category-icon {
+      @apply mx-auto mb-4;
+    }
+
+    .category-title {
+      @apply text-sm md:text-base font-medium text-gray-800;
+    }
   }
 }
 
@@ -65,51 +69,5 @@
   .cta-button {
     @apply bg-white text-green-600 px-8 py-3 rounded-full font-semibold 
     hover:bg-green-50 transition-colors inline-block;
-  }
-}
-
-.service-categories {
-  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6;
-
-  .category-card {
-    @apply bg-white p-6 rounded-lg shadow-sm hover:shadow-md 
-    transition-all duration-300 text-center cursor-pointer;
-
-    &:hover {
-      @apply transform -translate-y-1;
-    }
-
-    .category-icon {
-      @apply text-3xl text-green-500 mb-4;
-    }
-
-    .category-title {
-      @apply text-lg font-semibold text-gray-800;
-    }
-  }
-}
-
-.product-card {
-  @apply bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md 
-  transition-all duration-300;
-
-  .image-container {
-    @apply relative w-full h-48;
-  }
-
-  .content {
-    @apply p-4;
-
-    .title {
-      @apply text-lg font-semibold text-gray-800 mb-2;
-    }
-
-    .shop-name {
-      @apply text-sm text-gray-600;
-    }
-
-    .reviews {
-      @apply text-sm text-gray-500;
-    }
   }
 }

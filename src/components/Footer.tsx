@@ -73,13 +73,13 @@ const Footer = () => {
 
         {/* Social Media Links */}
         <div className="flex justify-center space-x-6 mt-12 mb-8">
-          <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
+          <a href="https://www.facebook.com/profile.php?id=100069583462410" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
             <i className="bi bi-facebook text-xl"></i>
           </a>
           <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
             <i className="bi bi-twitter text-xl"></i>
           </a>
-          <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
+          <a href="https://instagram.com/gadgetklinik" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
             <i className="bi bi-instagram text-xl"></i>
           </a>
           <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">

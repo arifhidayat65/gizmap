@@ -1,12 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
   images: {
     domains: ['storage.googleapis.com'],
-    unoptimized: true,
   },
-  output: 'export',
-  distDir: '.next'
-};
+}
 
 export default nextConfig;

@@ -15,9 +15,10 @@ const Header = () => {
             <Image
               src="/izmap.svg"
               alt="GizMap Logo"
-              width={350}
-              height={350}
-              className="h-10 w-auto"
+              width={128}
+              height={40}
+              className="w-32 h-10"
+              priority
             />
           </Link>
 

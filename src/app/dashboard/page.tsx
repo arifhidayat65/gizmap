@@ -1,156 +1,79 @@
-import Image from 'next/image'
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Cookies from 'js-cookie'
 
 export default function DashboardPage() {
-  return (
-    <div>
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white p-4 rounded-lg shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Total Services</p>
-              <h3 className="text-2xl font-bold text-gray-900">156</h3>
-            </div>
-            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-              <i className="fas fa-tools text-green-500"></i>
-            </div>
-          </div>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Active Users</p>
-              <h3 className="text-2xl font-bold text-gray-900">2,789</h3>
-            </div>
-            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-              <i className="fas fa-users text-blue-500"></i>
-            </div>
-          </div>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Total Podcasts</p>
-              <h3 className="text-2xl font-bold text-gray-900">24</h3>
-            </div>
-            <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-              <i className="fas fa-podcast text-purple-500"></i>
-            </div>
-          </div>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Total Revenue</p>
-              <h3 className="text-2xl font-bold text-gray-900">$12.5k</h3>
-            </div>
-            <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-              <i className="fas fa-dollar-sign text-yellow-500"></i>
-            </div>
-          </div>
-        </div>
+  const router = useRouter()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const token = Cookies.get('token')
+    if (!token) {
+      router.push('/login')
+    } else {
+      setLoading(false)
+    }
+  }, [router])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl">Loading...</div>
       </div>
+    )
+  }
 
-      {/* Recent Activity */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Latest Services */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Latest Services</h2>
-            <button className="text-green-500 hover:text-green-600">View All</button>
-          </div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <i className="fas fa-mobile-alt text-blue-500"></i>
+  return (
+    <div className="min-h-screen bg-gray-50 py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
+          <h1 className="text-2xl font-semibold text-gray-900 mb-6">Dashboard</h1>
+          
+          <div className="border-t border-gray-200 pt-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Dashboard Content */}
+              <div className="bg-green-50 overflow-hidden shadow rounded-lg">
+                <div className="p-5">
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0">
+                      <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div className="ml-5 w-0 flex-1">
+                      <dl>
+                        <dt className="text-sm font-medium text-green-800 truncate">
+                          Successfully Logged In
+                        </dt>
+                        <dd>
+                          <div className="text-lg font-medium text-green-900">
+                            Welcome to your dashboard!
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex-grow">
-                <h3 className="font-medium text-gray-800">iPhone Screen Repair</h3>
-                <p className="text-sm text-gray-500">iRoom Bandung</p>
-              </div>
-              <span className="text-sm text-gray-500">2h ago</span>
-            </div>
-            <div className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <i className="fas fa-tv text-purple-500"></i>
-              </div>
-              <div className="flex-grow">
-                <h3 className="font-medium text-gray-800">Smart TV Installation</h3>
-                <p className="text-sm text-gray-500">iService Bandung</p>
-              </div>
-              <span className="text-sm text-gray-500">5h ago</span>
-            </div>
-            <div className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                <i className="fas fa-gamepad text-green-500"></i>
-              </div>
-              <div className="flex-grow">
-                <h3 className="font-medium text-gray-800">PS5 Controller Repair</h3>
-                <p className="text-sm text-gray-500">iServices Bandung</p>
-              </div>
-              <span className="text-sm text-gray-500">1d ago</span>
             </div>
           </div>
-        </div>
 
-        {/* Latest Podcasts */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Latest Podcasts</h2>
-            <button className="text-green-500 hover:text-green-600">View All</button>
-          </div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <Image
-                src="https://storage.googleapis.com/a1aa/image/JyENFRoFerJOhWkpawI2rGfpiWY0yyrpg8i0UB5VDbc.jpg"
-                alt="Podcast 1"
-                width={64}
-                height={64}
-                className="rounded-lg object-cover"
-              />
-              <div className="flex-grow">
-                <h3 className="font-medium text-gray-800">Tech Repair Tips: iPhone Screen Replacement</h3>
-                <p className="text-sm text-gray-500">15:30 • John Tech</p>
-              </div>
-              <button className="text-green-500 hover:text-green-600">
-                <i className="fas fa-play"></i>
-              </button>
-            </div>
-            <div className="flex items-center gap-4">
-              <Image
-                src="https://storage.googleapis.com/a1aa/image/TbdNjjExjCdLuS2M99d2cK9TzFngXOZ32P5tu32MG5U.jpg"
-                alt="Podcast 2"
-                width={64}
-                height={64}
-                className="rounded-lg object-cover"
-              />
-              <div className="flex-grow">
-                <h3 className="font-medium text-gray-800">Smart TV Troubleshooting Guide</h3>
-                <p className="text-sm text-gray-500">20:45 • Sarah Electronics</p>
-              </div>
-              <button className="text-green-500 hover:text-green-600">
-                <i className="fas fa-play"></i>
-              </button>
-            </div>
-            <div className="flex items-center gap-4">
-              <Image
-                src="https://storage.googleapis.com/a1aa/image/3W83ec0Kc18xKnWXJige0Hhw_WjkWOdteS_Db7FtcsM.jpg"
-                alt="Podcast 3"
-                width={64}
-                height={64}
-                className="rounded-lg object-cover"
-              />
-              <div className="flex-grow">
-                <h3 className="font-medium text-gray-800">Gaming Console Maintenance 101</h3>
-                <p className="text-sm text-gray-500">18:15 • Mike Gaming</p>
-              </div>
-              <button className="text-green-500 hover:text-green-600">
-                <i className="fas fa-play"></i>
-              </button>
-            </div>
+          {/* Logout Button */}
+          <div className="mt-6">
+            <button
+              onClick={() => {
+                Cookies.remove('token')
+                router.push('/login')
+              }}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
