@@ -3,7 +3,7 @@
 
 :root {
   /* Colors */
-  --primary-color: #233d90;
+  --primary-color: #22c55e;
   --secondary-color: #ff6b18;
   --neutral-50: #fdfdfd;
   --neutral-100: #f7f7f7;
@@ -29,7 +29,43 @@ body {
   font-family: 'Inter', var(--font-roboto);
   color: var(--neutral-900);
   line-height: 1.5;
-  padding-top: 64px;
+  padding-top: 72px;
+  background-color: #f8fafc;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
 }
 
 /* Navigation Styles */

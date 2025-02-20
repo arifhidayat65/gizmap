@@ -1,5 +1,6 @@
 import './globals.scss'
 import './styles/custom.css'
+import './styles/buttons.css'
 import Header from '../components/common/layouts/Header'
 import Footer from '../components/common/layouts/Footer'
 import BackToTop from '../components/common/layouts/BackToTop'
