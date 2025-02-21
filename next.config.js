@@ -50,26 +50,20 @@ const nextConfig = {
           framework: {
             chunks: 'all',
             name: 'framework',
-            test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+            test: /[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
             priority: 40,
             enforce: true,
           },
+          lib: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendor',
+            chunks: 'all',
+            priority: 30,
+          },
           commons: {
             name: 'commons',
-            chunks: 'all',
             minChunks: 2,
             priority: 20,
-          },
-          shared: {
-            name: (module, chunks) => {
-              const hash = crypto.createHash('sha1');
-              chunks.forEach(chunk => {
-                hash.update(chunk.name);
-              });
-              return hash.digest('hex').substring(0, 8);
-            },
-            priority: 10,
-            minChunks: 2,
             reuseExistingChunk: true,
           },
         },
