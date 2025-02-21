@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-const BackToTop = () => {
+export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled up to given distance
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -14,7 +13,6 @@ const BackToTop = () => {
     }
   };
 
-  // Scroll to top smoothly
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -31,15 +29,11 @@ const BackToTop = () => {
 
   return (
     <button
-      className={`fb-back-to-top ${isVisible ? 'show' : ''}`}
-      id="btn-backtotop"
       onClick={scrollToTop}
+      className={`fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       aria-label="Back to top"
-      title="Back to top"
     >
-      <i className="bi bi-chevron-up"></i>
+      ↑
     </button>
   );
-};
-
-export default BackToTop;
+}

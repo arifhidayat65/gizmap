@@ -3,37 +3,26 @@
 interface ServiceIconProps {
   name?: string;
   className?: string;
-  path?: string;
 }
 
-const icons = {
-  smartphone: (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-      <path d="M10.5 18.75a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" />
-      <path fillRule="evenodd" d="M8.625.75A3.375 3.375 0 005.25 4.125v15.75a3.375 3.375 0 003.375 3.375h6.75a3.375 3.375 0 003.375-3.375V4.125A3.375 3.375 0 0015.375.75h-6.75zM7.5 4.125C7.5 3.504 8.004 3 8.625 3h6.75c.621 0 1.125.504 1.125 1.125v15.75c0 .621-.504 1.125-1.125 1.125h-6.75a1.125 1.125 0 01-1.125-1.125V4.125z" clipRule="evenodd" />
-    </svg>
-  ),
-  // ... other icons
-};
+const ServiceIcon = ({ name = '', className = '' }: ServiceIconProps) => {
+  // Map service names to specific Font Awesome icons
+  const iconMap: { [key: string]: string } = {
+    smartphone: 'mobile-alt',  // fa-mobile-alt for smartphone
+    laptop: 'laptop',          // fa-laptop for laptop/PC
+    tv: 'tv',                 // fa-tv for LED/Smart TV
+    gamepad: 'gamepad',       // fa-gamepad for console
+    phone: 'phone-alt',       // fa-phone-alt for communication devices
+    more: 'ellipsis-h',       // fa-ellipsis-h for more options
+    search: 'search'          // fa-search for search functionality
+  };
 
-const ServiceIcon = ({ name, className = '', path }: ServiceIconProps) => {
-  const icon = icons[name as keyof typeof icons];
-
-  if (path) {
-    return (
-      <div className={`w-16 h-16 ${className}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-          <path d={path} />
-        </svg>
-      </div>
-    );
-  }
-
-  if (!icon) return null;
+  // Get the icon class or use a default if not found
+  const iconClass = iconMap[name] || 'question';
 
   return (
-    <div className={`w-16 h-16 ${className}`}>
-      {icon}
+    <div className={`icon-wrapper ${className}`}>
+      <i className={`fas fa-${iconClass}`} aria-hidden="true"></i>
     </div>
   );
 };

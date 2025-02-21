@@ -11,10 +11,10 @@ export default function ProductsPage() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      console.log('Fetching products...');
+      // console.log('Fetching products...');
       try {
         const data = await escuelajsApi.getAllProducts();
-        console.log('Products fetched:', data);
+        // console.log('Products fetched:', data);
         // Transform API response to match Product type
         const transformedProducts: Product[] = data.map(item => ({
           id: String(item.id),

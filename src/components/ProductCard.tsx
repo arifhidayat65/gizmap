@@ -23,7 +23,9 @@ export default function ProductCard({ product }: ProductCardProps) {
           src={product.image}
           alt={product.title}
           fill
+          sizes="(max-width: 768px) 100vw, (min-width: 769px) 33vw"
           className="object-cover"
+          priority={false}
         />
         {product.isPromo && (
           <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm">

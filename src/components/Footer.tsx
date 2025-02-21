@@ -34,12 +34,12 @@ const Footer = () => {
           </div>
 
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold mb-6 text-green-500">Services</h3>
+            <h3 className="text-lg font-bold mb-6 text-green-200">Services</h3>
             <ul className="space-y-3">
-              <li className="text-gray-600 hover:text-green-500 transition-colors duration-300 cursor-pointer">Service Smartphone</li>
-              <li className="text-gray-600 hover:text-green-500 transition-colors duration-300 cursor-pointer">Service Laptop/PC</li>
-              <li className="text-gray-600 hover:text-green-500 transition-colors duration-300 cursor-pointer">Service LED/Smart TV</li>
-              <li className="text-gray-600 hover:text-green-500 transition-colors duration-300 cursor-pointer">Service Console</li>
+              <li className="text-gray-600 hover:text-green-200 transition-colors duration-100 cursor-pointer">Service Smartphone</li>
+              <li className="text-gray-600 hover:text-green-200 transition-colors duration-100 cursor-pointer">Service Laptop/PC</li>
+              <li className="text-gray-600 hover:text-green-200 transition-colors duration-100 cursor-pointer">Service LED/Smart TV</li>
+              <li className="text-gray-600 hover:text-green-200 transition-colors duration-100 cursor-pointer">Service Console</li>
             </ul>
           </div>
 

@@ -19,7 +19,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { access_token, refresh_token } = await escuelajsApi.login(data);
+    // Use test credentials if in development
+    const credentials = process.env.NODE_ENV === 'development' 
+      ? {
+          email: 'john@mail.com',
+          password: 'changeme'
+        }
+      : data;
+
+    const { access_token, refresh_token } = await escuelajsApi.login(credentials);
     
     const response = NextResponse.json({
       success: true,
@@ -38,10 +46,16 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Login error:', error);
     
+    // Return more detailed error message in development
+    const errorMessage = process.env.NODE_ENV === 'development' 
+      ? error instanceof Error ? error.message : 'Unknown error'
+      : 'Invalid credentials';
+    
     return NextResponse.json(
       {
         success: false,
-        message: 'Invalid credentials'
+        message: errorMessage,
+        error: process.env.NODE_ENV === 'development' ? error : undefined
       },
       { status: 401 }
     );

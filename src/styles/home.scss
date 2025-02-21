@@ -27,6 +27,48 @@
   }
 }
 
+.search-results {
+  @apply bg-white rounded-xl shadow-lg p-8 mb-8;
+
+  .search-title {
+    @apply text-2xl font-bold mb-3 text-gray-800;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.5px;
+  }
+
+  .search-subtitle {
+    @apply relative inline-block;
+
+    .text {
+      @apply text-green-500 text-lg font-semibold tracking-wide;
+      font-family: 'Inter', sans-serif;
+      
+      &::after {
+        content: '';
+        @apply absolute bottom-0 left-0 w-full h-0.5 bg-green-200;
+        transform: translateY(-2px);
+      }
+    }
+
+    .dots {
+      @apply text-2xl text-green-500 ml-2 inline-block;
+      animation: blink 1.4s infinite;
+    }
+  }
+
+  .results-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8;
+
+    .product-card {
+      @apply transform transition-transform duration-300;
+
+      &:hover {
+        @apply scale-105;
+      }
+    }
+  }
+}
+
 .featured-section {
   @apply py-16 bg-gray-50;
 
@@ -70,4 +112,9 @@
     @apply bg-white text-green-600 px-8 py-3 rounded-full font-semibold 
     hover:bg-green-50 transition-colors inline-block;
   }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }

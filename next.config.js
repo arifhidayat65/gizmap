@@ -6,24 +6,36 @@ const nextConfig = {
     includePaths: ['./src/styles'],
   },
   images: {
-    domains: [
-      'via.placeholder.com',
-      'storage.googleapis.com',
-      'avatar.iran.liara.run'
-    ]
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatar.iran.liara.run',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.imgur.com',
+      },
+    ],
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.modules.push(path.resolve('./src'));
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.join(__dirname, 'src')
+      '@': path.join(__dirname, 'src'),
     };
     return config;
   },
   experimental: {
-    appDir: true,
-    esmExternals: true
-  }
+    esmExternals: true,
+  },
 };
 
 module.exports = nextConfig;

@@ -67,4 +67,3 @@ export const communityGroups = [
   'Komunitas Teknisi Garangan'
 ];
 
-export const promoProducts = products;

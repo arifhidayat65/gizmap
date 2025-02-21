@@ -1,7 +1,7 @@
 'use client';
 
 import ServiceIcon from '@/components/common/Icon/ServiceIcon';
-import FooterSection from '@/components/layout/Footer/components/FooterSection';
+import FooterSection from '../components/FooterSection';
 import { contactInfo, type ContactInfo as ContactInfoType } from '@/constants/footer';
 
 const ContactInfo = () => (
@@ -10,7 +10,7 @@ const ContactInfo = () => (
       {Object.entries(contactInfo).map(([key, { icon, text }]: [string, ContactInfoType[string]]) => (
         <li key={key} className={`flex ${key === 'address' ? 'items-start' : 'items-center'}`}>
           <ServiceIcon 
-            path={icon} 
+            name={icon} 
             className="w-6 h-6 mr-2 text-primary"
           />
           <span className="text-neutral-600">
