@@ -2,11 +2,24 @@ FROM node:18-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
+# Add Python and other build tools for node-gyp
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    libc6-compat \
+    build-base \
+    cairo-dev \
+    jpeg-dev \
+    pango-dev \
+    giflib-dev
+
 WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json ./
+# Set Python path for node-gyp
+ENV PYTHON=/usr/bin/python3
 RUN npm ci
 
 # Rebuild the source code only when needed
@@ -31,8 +44,13 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Install curl for healthcheck
-RUN apk add --no-cache curl
+# Install curl for healthcheck and runtime dependencies
+RUN apk add --no-cache \
+    curl \
+    cairo \
+    jpeg \
+    pango \
+    giflib
 
 COPY --from=builder /app/public ./public
 
