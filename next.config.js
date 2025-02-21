@@ -2,6 +2,9 @@
 const path = require('path');
 
 const nextConfig = {
+  // Enable output standalone for Docker
+  output: 'standalone',
+  
   sassOptions: {
     includePaths: ['./src/styles'],
   },
@@ -31,10 +34,61 @@ const nextConfig = {
       ...config.resolve.alias,
       '@': path.join(__dirname, 'src'),
     };
+
+    // Optimize chunks for production
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        minSize: 20000,
+        maxSize: 50000,
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          framework: {
+            chunks: 'all',
+            name: 'framework',
+            test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          commons: {
+            name: 'commons',
+            chunks: 'all',
+            minChunks: 2,
+            priority: 20,
+          },
+          shared: {
+            name: (module, chunks) => {
+              const hash = crypto.createHash('sha1');
+              chunks.forEach(chunk => {
+                hash.update(chunk.name);
+              });
+              return hash.digest('hex').substring(0, 8);
+            },
+            priority: 10,
+            minChunks: 2,
+            reuseExistingChunk: true,
+          },
+        },
+      };
+
+      // Enable compression in production
+      config.optimization.minimize = true;
+    }
+
     return config;
   },
-  experimental: {
-    esmExternals: true,
+  // Production optimizations
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: true,
+  // Cache optimization
+  onDemandEntries: {
+    maxInactiveAge: 60 * 60 * 1000,
+    pagesBufferLength: 2,
   },
 };
 
