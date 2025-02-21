@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import ServiceIcon from '@/components/common/Icon/ServiceIcon';
 
 interface FooterLinkProps {
   href: string;
@@ -8,12 +7,11 @@ interface FooterLinkProps {
   className?: string;
 }
 
-const FooterLink = ({ href, iconPath, children, className = "" }: FooterLinkProps) => (
+const FooterLink = ({ href, children, className = "" }: FooterLinkProps) => (
   <Link 
     href={href} 
     className={`text-neutral-600 hover:text-primary flex items-center ${className}`}
   >
-    {iconPath && <ServiceIcon path={iconPath} />}
     {children}
   </Link>
 );
