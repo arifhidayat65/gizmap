@@ -1,0 +1,219 @@
+// Dashboard Variables
+$dashboard-primary: #10B981;
+$dashboard-secondary: #6B7280;
+$dashboard-bg: #F3F4F6;
+$dashboard-card-bg: #FFFFFF;
+$dashboard-text: #1F2937;
+$dashboard-border: #E5E7EB;
+$dashboard-hover: #F9FAFB;
+
+// Mixins
+@mixin card-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+@mixin gradient-bg {
+  background: linear-gradient(135deg, $dashboard-primary 0%, darken($dashboard-primary, 10%) 100%);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Dashboard Layout
+.dashboard {
+  &-container {
+    min-height: 100vh;
+    background-color: $dashboard-bg;
+  }
+
+  &-sidebar {
+    @apply fixed inset-y-0 left-0 w-64 bg-white;
+    @include card-shadow;
+
+    &-logo {
+      @apply p-4 border-b border-gray-200;
+      img {
+        @apply h-8 w-auto;
+      }
+    }
+
+    &-nav {
+      @apply mt-4 px-2;
+
+      .nav-item {
+        @apply block px-4 py-2 rounded-lg transition-colors duration-200;
+        color: $dashboard-secondary;
+
+        &:hover {
+          background-color: rgba($dashboard-primary, 0.1);
+          color: $dashboard-primary;
+        }
+
+        &.active {
+          background-color: rgba($dashboard-primary, 0.1);
+          color: $dashboard-primary;
+          font-weight: 500;
+        }
+
+        .icon {
+          @apply mr-3;
+        }
+      }
+    }
+  }
+
+  &-main {
+    @apply ml-64;
+  }
+
+  &-header {
+    @apply bg-white shadow-sm;
+    @include card-shadow;
+
+    &-content {
+      @apply flex justify-between items-center p-4;
+    }
+
+    &-title {
+      @apply text-xl font-bold text-gray-800;
+    }
+
+    &-actions {
+      @apply flex items-center space-x-4;
+
+      .notification-btn {
+        @apply text-gray-500 hover:text-gray-600 transition-colors duration-200;
+      }
+
+      .user-avatar {
+        @apply w-8 h-8 rounded-full bg-green-100 flex items-center justify-center;
+        span {
+          @apply text-green-600 font-medium;
+        }
+      }
+    }
+  }
+}
+
+// Profile Components
+.profile {
+  &-header {
+    @apply bg-white rounded-lg overflow-hidden;
+    @include card-shadow;
+
+    &-cover {
+      height: 160px;
+      @include gradient-bg;
+    }
+
+    &-content {
+      @apply p-6 sm:p-8 -mt-16 relative;
+    }
+
+    &-avatar {
+      @apply relative rounded-full ring-4 ring-white;
+      @include card-shadow;
+      width: 128px;
+      height: 128px;
+
+      img {
+        @apply rounded-full object-cover;
+      }
+    }
+
+    &-info {
+      @apply mt-4 sm:mt-0 sm:ml-6;
+
+      h2 {
+        @apply text-2xl font-bold text-gray-900;
+      }
+
+      .role-badge {
+        @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+        background-color: rgba($dashboard-primary, 0.1);
+        color: $dashboard-primary;
+
+        .status-dot {
+          @apply w-2 h-2 rounded-full mr-2;
+          background-color: $dashboard-primary;
+        }
+      }
+    }
+
+    &-stats {
+      @apply grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200;
+
+      .stat-item {
+        @apply text-center;
+
+        .stat-value {
+          @apply text-2xl font-bold text-gray-900;
+        }
+
+        .stat-label {
+          @apply text-sm text-gray-600;
+        }
+      }
+    }
+  }
+
+  &-details {
+    @apply mt-6 bg-white rounded-lg;
+    @include card-shadow;
+
+    &-section {
+      @apply p-6;
+
+      &-title {
+        @apply flex items-center text-lg font-semibold text-gray-900 mb-4;
+        
+        .icon {
+          @apply w-5 h-5 text-gray-500 mr-2;
+        }
+      }
+
+      &-content {
+        @apply bg-gray-50 rounded-lg p-4;
+
+        .info-item {
+          @apply mb-4 last:mb-0;
+
+          label {
+            @apply block text-sm font-medium text-gray-600;
+          }
+
+          .value {
+            @apply mt-1 text-gray-900 font-medium;
+          }
+        }
+      }
+    }
+
+    &-actions {
+      @apply space-y-3;
+
+      .action-btn {
+        @apply w-full flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200;
+
+        &.primary {
+          @apply bg-green-600 text-white hover:bg-green-700;
+        }
+
+        &.secondary {
+          @apply border border-gray-300 text-gray-700 bg-white hover:bg-gray-50;
+        }
+
+        &.danger {
+          @apply border border-red-300 text-red-700 bg-white hover:bg-red-50;
+        }
+
+        .icon {
+          @apply w-4 h-4 mr-2;
+        }
+      }
+    }
+  }
+}

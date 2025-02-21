@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 
 export async function POST(request: Request) {
   try {
@@ -22,10 +23,35 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json(data);
+    // Create response with data
+    const jsonResponse = NextResponse.json({
+      success: true,
+      data: {
+        access_token: data.access_token,
+        refresh_token: data.refresh_token,
+      },
+    });
+
+    // Set cookies in the response
+    jsonResponse.cookies.set('access_token', data.access_token, {
+      path: '/',
+      maxAge: 86400, // 24 hours
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+    });
+
+    jsonResponse.cookies.set('refresh_token', data.refresh_token, {
+      path: '/',
+      maxAge: 604800, // 7 days
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+    });
+
+    return jsonResponse;
   } catch (error) {
+    console.error('Login error:', error);
     return NextResponse.json(
-      { message: 'Internal server error' },
+      { success: false, message: 'Internal server error' },
       { status: 500 }
     );
   }

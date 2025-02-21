@@ -129,7 +129,7 @@
       overflow: hidden;
     }
     #section-testimonials .card.card-testi .name {
-      color: #000;
+      color: #4B5563;
       font-family: Roboto;
       font-size: 14px;
       font-style: normal;
@@ -173,7 +173,7 @@
       flex-direction: column;
     }
     #section-class-schedules .section-title {
-      color: #000;
+      color: #4B5563;
       text-align: center;
       font-family: Montserrat;
       font-size: 28px;
@@ -202,7 +202,7 @@
       letter-spacing: 0.8px;
     }
     #section-class-schedules .schedule-subtitle {
-      color: #000;
+      color: #4B5563;
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
@@ -336,7 +336,7 @@
       padding: 69px 20px 50px 20px;
     }
     #section-articles .section-title {
-      color: #000;
+      color: #4B5563;
       text-align: center;
       font-family: Montserrat;
       font-size: 28px;
@@ -370,7 +370,7 @@
       object-fit: cover;
     }
     #section-articles .card.card-article .title {
-      color: #000;
+      color: #4B5563;
       font-family: Montserrat;
       font-size: 20px;
       font-style: normal;
@@ -724,7 +724,7 @@
       padding-top: 30px;
     }
     #section-why-enigma .index-title {
-      color: #000;
+      color: #4B5563;
       font-family: Montserrat;
       font-size: 36px;
       font-style: normal;

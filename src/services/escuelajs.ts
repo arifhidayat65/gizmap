@@ -1,4 +1,5 @@
 import { API_ENDPOINTS } from '../config/api';
+import { fetchWithAuth } from '../utils/http/fetch';
 
 interface LoginResponse {
   access_token: string;
@@ -24,7 +25,7 @@ interface Category {
   image: string;
 }
 
-interface User {
+export interface User {
   id: number;
   email: string;
   password: string;
@@ -138,6 +139,37 @@ export const escuelajsApi = {
 
     if (!response.ok) {
       throw new Error('Failed to login');
+    }
+
+    return response.json();
+  },
+
+  getProfile: async (): Promise<User> => {
+    const response = await fetchWithAuth(API_ENDPOINTS.auth.profile('escuelajs'), {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch profile');
+    }
+
+    return response.json();
+  },
+
+  updateProfile: async (data: Partial<User>): Promise<User> => {
+    const response = await fetchWithAuth(API_ENDPOINTS.user.update(), {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update profile');
     }
 
     return response.json();

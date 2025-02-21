@@ -10,6 +10,7 @@ export const API_ENDPOINTS = {
     login: (type: 'main' | 'escuelajs' = 'main') => getApiUrl(API_CONFIG.auth.login, type),
     logout: (type: 'main' | 'escuelajs' = 'main') => getApiUrl(API_CONFIG.auth.logout, type),
     register: (type: 'main' | 'escuelajs' = 'main') => getApiUrl(API_CONFIG.auth.register, type),
+    profile: (type: 'main' | 'escuelajs' = 'main') => getApiUrl(API_CONFIG.auth.profile, type),
   },
   user: {
     profile: () => getApiUrl(API_CONFIG.user.profile),
