@@ -5,21 +5,24 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { email, password } = body;
 
-    // Here you would typically validate credentials against a database
-    // For now, we'll use a simple check
-    if (email === 'admin@example.com' && password === 'password123') {
-      return NextResponse.json({
-        access_token: 'dummy_access_token',
-        refresh_token: 'dummy_refresh_token'
-      });
+    const response = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return NextResponse.json(
+        { message: data.message || 'Authentication failed' },
+        { status: response.status }
+      );
     }
 
-    // If credentials are invalid
-    return NextResponse.json(
-      { message: 'Invalid credentials' },
-      { status: 401 }
-    );
-
+    return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json(
       { message: 'Internal server error' },

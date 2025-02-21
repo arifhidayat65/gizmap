@@ -1,6 +1,8 @@
+'use client';
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import LogoutButton from '@/components/auth/LogoutButton'
 
 export default function DashboardLayout({
   children,
@@ -75,6 +77,7 @@ export default function DashboardLayout({
               <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
                 <span className="text-green-600 font-medium">A</span>
               </div>
+              <LogoutButton />
             </div>
           </div>
         </header>

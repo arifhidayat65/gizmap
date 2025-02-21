@@ -1,4 +1,4 @@
-import { environment } from '../config/environment';
+import { API_ENDPOINTS } from '../config/api';
 
 interface LoginResponse {
   access_token: string;
@@ -36,7 +36,7 @@ interface User {
 export const escuelajsApi = {
   // Products
   getAllProducts: async (): Promise<Product[]> => {
-    const response = await fetch(`${environment.escuelaJsApi}/products`);
+    const response = await fetch(API_ENDPOINTS.products.list());
     if (!response.ok) {
       throw new Error('Failed to fetch products');
     }
@@ -44,7 +44,7 @@ export const escuelajsApi = {
   },
 
   getProduct: async (id: number): Promise<Product> => {
-    const response = await fetch(`${environment.escuelaJsApi}/products/${id}`);
+    const response = await fetch(API_ENDPOINTS.products.detail(id));
     if (!response.ok) {
       throw new Error('Failed to fetch product');
     }
@@ -53,7 +53,7 @@ export const escuelajsApi = {
 
   // Categories
   getAllCategories: async (): Promise<Category[]> => {
-    const response = await fetch(`${environment.escuelaJsApi}/categories`);
+    const response = await fetch(API_ENDPOINTS.categories.list());
     if (!response.ok) {
       throw new Error('Failed to fetch categories');
     }
@@ -61,7 +61,7 @@ export const escuelajsApi = {
   },
 
   getCategory: async (id: number): Promise<Category> => {
-    const response = await fetch(`${environment.escuelaJsApi}/categories/${id}`);
+    const response = await fetch(API_ENDPOINTS.categories.detail(id));
     if (!response.ok) {
       throw new Error('Failed to fetch category');
     }
@@ -70,7 +70,7 @@ export const escuelajsApi = {
 
   // Users
   getAllUsers: async (): Promise<User[]> => {
-    const response = await fetch(`${environment.escuelaJsApi}/users`);
+    const response = await fetch(API_ENDPOINTS.users.list());
     if (!response.ok) {
       throw new Error('Failed to fetch users');
     }
@@ -78,7 +78,7 @@ export const escuelajsApi = {
   },
 
   getUser: async (id: number): Promise<User> => {
-    const response = await fetch(`${environment.escuelaJsApi}/users/${id}`);
+    const response = await fetch(API_ENDPOINTS.users.detail(id));
     if (!response.ok) {
       throw new Error('Failed to fetch user');
     }
@@ -87,7 +87,7 @@ export const escuelajsApi = {
 
   // Create new product
   createProduct: async (product: Omit<Product, 'id'>): Promise<Product> => {
-    const response = await fetch(`${environment.escuelaJsApi}/products`, {
+    const response = await fetch(API_ENDPOINTS.products.list(), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ export const escuelajsApi = {
 
   // Update product
   updateProduct: async (id: number, product: Partial<Product>): Promise<Product> => {
-    const response = await fetch(`${environment.escuelaJsApi}/products/${id}`, {
+    const response = await fetch(API_ENDPOINTS.products.detail(id), {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ export const escuelajsApi = {
 
   // Delete product
   deleteProduct: async (id: number): Promise<boolean> => {
-    const response = await fetch(`${environment.escuelaJsApi}/products/${id}`, {
+    const response = await fetch(API_ENDPOINTS.products.detail(id), {
       method: 'DELETE',
     });
     if (!response.ok) {
@@ -128,7 +128,7 @@ export const escuelajsApi = {
 
   // Auth
   login: async (credentials: { email: string; password: string }): Promise<LoginResponse> => {
-    const response = await fetch(`${environment.escuelaJsApi}/auth/login`, {
+    const response = await fetch(API_ENDPOINTS.auth.login('escuelajs'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { login } from '@/services/auth'
 import { useRouter } from 'next/navigation'
-import Cookies from 'js-cookie'
 
 export default function LoginForm() {
   const router = useRouter()
@@ -28,15 +27,10 @@ export default function LoginForm() {
     setError('')
 
     try {
-      const response = await login(formData)
-      // Store the token in an HTTP-only cookie
-      Cookies.set('token', response.access_token, { 
-        expires: 7, // 7 days
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict'
-      })
+      await login(formData)
+      // Login service now handles cookie setting
       // Redirect to dashboard
-      router.push('/dashboard')
+      router.replace('/dashboard')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to login')
     } finally {
