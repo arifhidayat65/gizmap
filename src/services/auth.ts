@@ -13,17 +13,31 @@ interface LoginResponse {
 
 export async function login(credentials: LoginCredentials): Promise<LoginResponse> {
   try {
-    const response = await escuelajsApi.login(credentials);
-    return response;
+    // Call our Next.js API route instead of escuelajs directly
+    const response = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(credentials),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Failed to login');
+    }
+
+    return response.json();
   } catch (error) {
-    throw new Error('Failed to login');
+    throw error instanceof Error ? error : new Error('Failed to login');
   }
 }
 
 export async function logout(): Promise<void> {
-  // Clear any auth tokens or state
-  localStorage.removeItem('access_token');
-  localStorage.removeItem('refresh_token');
+  // Call logout API to clear the cookie
+  await fetch('/api/auth/logout', {
+    method: 'POST'
+  });
   
   // Redirect to login page
   window.location.href = '/login';

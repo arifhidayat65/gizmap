@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { escuelajsApi } from '../../../services/escuelajs';
-import ProfileHeader from '../../../components/dashboard/profile/ProfileHeader';
-import ProfileDetails from '../../../components/dashboard/profile/ProfileDetails';
-import type { User } from '../../../services/escuelajs';
+import { escuelajsApi } from '@/services/escuelajs';
+import ProfileHeader from '@/components/dashboard/profile/ProfileHeader';
+import ProfileDetails from '@/components/dashboard/profile/ProfileDetails';
+import type { User } from '@/services/escuelajs';
 
 export default function ProfilePage() {
   const [user, setUser] = useState<User | null>(null);

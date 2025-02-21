@@ -2,10 +2,28 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    // Check if user is authenticated by looking for access token
+    const checkAuth = () => {
+      const token = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('access_token='))
+      setIsAuthenticated(!!token)
+    }
+
+    checkAuth()
+    // Listen for storage events (logout)
+    window.addEventListener('storage', checkAuth)
+    return () => window.removeEventListener('storage', checkAuth)
+  }, [])
 
   const menuItems = [
     { href: '/', label: 'Home' },
@@ -66,12 +84,20 @@ const Header = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/login" className="btn btn-secondary">
-              Login
-            </Link>
-            <Link href="/register" className="btn btn-primary">
-              Register
-            </Link>
+            {isAuthenticated ? (
+              <Link href="/dashboard" className="btn btn-secondary">
+                Dashboard
+              </Link>
+            ) : (
+              <>
+                <Link href="/login" className="btn btn-secondary">
+                  Login
+                </Link>
+                <Link href="/register" className="btn btn-primary">
+                  Register
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
@@ -93,12 +119,20 @@ const Header = () => {
               </Link>
             ))}
             <div className="flex flex-col space-y-2 pt-4">
-              <Link href="/login" className="btn btn-secondary w-full text-center">
-                Login
-              </Link>
-              <Link href="/register" className="btn btn-primary w-full text-center">
-                Register
-              </Link>
+              {isAuthenticated ? (
+                <Link href="/dashboard" className="btn btn-secondary w-full text-center">
+                  Dashboard
+                </Link>
+              ) : (
+                <>
+                  <Link href="/login" className="btn btn-secondary w-full text-center">
+                    Login
+                  </Link>
+                  <Link href="/register" className="btn btn-primary w-full text-center">
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
         </div>

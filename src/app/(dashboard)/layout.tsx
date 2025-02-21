@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import Cookies from 'js-cookie'
+import Link from 'next/link';
+import { logout } from '@/services/auth';
 
 export default function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const router = useRouter()
-
-  const handleLogout = () => {
-    Cookies.remove('token')
-    router.push('/(auth)/login')
-  }
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error('Failed to logout:', error);
+    }
+  };
 
   return (
     <div className="min-h-screen flex">
@@ -25,16 +25,22 @@ export default function DashboardLayout({
         </div>
         <nav className="space-y-4">
           <Link 
-            href="/(dashboard)"
+            href="/dashboard"
             className="block py-2 px-4 rounded hover:bg-gray-700 transition-colors"
           >
             Overview
           </Link>
           <Link 
-            href="/(dashboard)/dashboard/podcast"
+            href="/dashboard/podcast"
             className="block py-2 px-4 rounded hover:bg-gray-700 transition-colors"
           >
             Podcasts
+          </Link>
+          <Link 
+            href="/profile"
+            className="block py-2 px-4 rounded hover:bg-gray-700 transition-colors"
+          >
+            Profile
           </Link>
           <button
             onClick={handleLogout}
@@ -52,5 +58,5 @@ export default function DashboardLayout({
         </div>
       </main>
     </div>
-  )
+  );
 }

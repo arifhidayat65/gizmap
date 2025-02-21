@@ -1,11 +1,13 @@
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer/Footer'
-import BackToTop from '@/components/BackToTop'
+'use client';
+
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer/Footer';
+import BackToTop from '@/components/BackToTop';
 
 export default function MainLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <>
@@ -16,5 +18,5 @@ export default function MainLayout({
       <Footer />
       <BackToTop />
     </>
-  )
+  );
 }

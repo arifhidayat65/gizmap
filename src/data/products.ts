@@ -8,7 +8,8 @@ export const products: Product[] = [
     image: 'https://storage.googleapis.com/a1aa/image/imf-iNZsYZmyZ0nR2fMSBEtX9rOSe_pbyEl4l-cSgOw.jpg',
     rating: 5,
     reviews: 143,
-    shopName: 'iRoom Bandung'
+    shopName: 'iRoom Bandung',
+    isPromo: true
   },
   {
     id: '2',
@@ -17,7 +18,8 @@ export const products: Product[] = [
     image: 'https://storage.googleapis.com/a1aa/image/GVPc_xDNdgiET3nzJ_ihVkNUKMClLVCSGVXx0ksh93Q.jpg',
     rating: 5,
     reviews: 110,
-    shopName: 'iService Bandung'
+    shopName: 'iService Bandung',
+    isPromo: false
   },
   {
     id: '3',
@@ -26,7 +28,8 @@ export const products: Product[] = [
     image: 'https://storage.googleapis.com/a1aa/image/74P3KoQmVF6tgADp92h2YcMn1g0dPplaVY5PYmkySNY.jpg',
     rating: 5,
     reviews: 74,
-    shopName: 'iServices Bandung'
+    shopName: 'iServices Bandung',
+    isPromo: true
   }
 ];
 

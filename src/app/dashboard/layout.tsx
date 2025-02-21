@@ -30,17 +30,20 @@ export default function DashboardLayout({
       {/* Sidebar */}
       <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg">
         <div className="p-4 border-b border-gray-200">
-          <Image 
+          <Link href="/">
+            <Image 
               src="/images/izmap.svg"
               alt="GizMap Logo"
-            width={32}
-            height={32}
-            className="h-8 w-auto"
-          />
+              width={32}
+              height={32}
+              className="h-8 w-auto hover:opacity-80 transition-opacity"
+            />
+          </Link>
         </div>
         <nav className="mt-4 px-2">
           {[
-            { href: '/dashboard', icon: 'home', label: 'Overview' },
+            { href: '/', icon: 'home', label: 'Home' },
+            { href: '/dashboard', icon: 'chart-bar', label: 'Dashboard' },
             { href: '/dashboard/podcast', icon: 'podcast', label: 'Podcasts' },
             { href: '/dashboard/analytics', icon: 'chart-line', label: 'Analytics' },
             { href: '/dashboard/profile', icon: 'user', label: 'Profile' },

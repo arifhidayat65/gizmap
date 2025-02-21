@@ -1,3 +1,7 @@
+'use client';
+
+import React from 'react';
+
 interface FooterSectionProps {
   title: string;
   children: React.ReactNode;

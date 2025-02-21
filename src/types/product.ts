@@ -6,5 +6,5 @@ export interface Product {
   rating: number;
   reviews: number;
   shopName: string;
-  isPromo?: boolean;
+  isPromo: boolean;
 }

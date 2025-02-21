@@ -2,8 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { escuelajsApi } from '../../../../services/escuelajs';
 
-export const dynamic = 'force-static';
-export const revalidate = false;
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,10 +21,20 @@ export async function POST(request: NextRequest) {
 
     const { access_token, refresh_token } = await escuelajsApi.login(data);
     
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       data: { access_token, refresh_token }
     });
+
+    // Set the access token as an HTTP-only cookie
+    response.cookies.set('access_token', access_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/'
+    });
+
+    return response;
   } catch (error) {
     console.error('Login error:', error);
     

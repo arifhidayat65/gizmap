@@ -1,26 +1,24 @@
-'use client'
+'use client';
 
-import FooterLink from '../components/FooterLink'
-import FooterSection from '../components/FooterSection'
-import { quickLinks } from '@/constants/footer'
-
-interface QuickLink {
-  href: string
-  label: string
-}
+import Link from 'next/link';
+import FooterSection from '@/components/layout/Footer/components/FooterSection';
+import { quickLinks, type QuickLink } from '@/constants/footer';
 
 const QuickLinks = () => (
   <FooterSection title="Quick Links">
     <ul className="space-y-2">
-      {quickLinks.map(({ href, label }: QuickLink) => (
+      {quickLinks.map(({ text, href }: QuickLink) => (
         <li key={href}>
-          <FooterLink href={href}>
-            {label}
-          </FooterLink>
+          <Link 
+            href={href}
+            className="text-neutral-600 hover:text-primary transition-colors"
+          >
+            {text}
+          </Link>
         </li>
       ))}
     </ul>
   </FooterSection>
-)
+);
 
-export default QuickLinks
+export default QuickLinks;

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import type { User } from '@/services/escuelajs';
+import type { User } from '../../../services/escuelajs';
 
 interface ProfileHeaderProps {
   user: User;

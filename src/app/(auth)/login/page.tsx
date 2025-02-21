@@ -1,18 +1,19 @@
 'use client';
-import LoginForm from '@/components/auth/LoginForm'
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+
+import LoginForm from '../../../components/auth/LoginForm';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     // Check if there's a token in cookies
-    const hasToken = document.cookie.includes('access_token')
+    const hasToken = document.cookie.includes('access_token');
     if (hasToken) {
-      router.replace('/dashboard')
+      router.replace('/dashboard');
     }
-  }, [router])
+  }, [router]);
 
   return (
     <div className="max-w-md w-full space-y-8">
@@ -30,5 +31,5 @@ export default function LoginPage() {
       </div>
       <LoginForm />
     </div>
-  )
+  );
 }
