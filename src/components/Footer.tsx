@@ -8,13 +8,14 @@ const Footer = () => {
       <div className="container mx-auto py-12 px-4">
         {/* Logo and Description */}
         <div className="text-center mb-12">
-          <Image 
-                src="/izmap.svg"
+            <Image
+              src="/images/izmap.svg"
               alt="GizMap Logo"
-            width={48}
-            height={48}
-            className="h-12 w-auto mx-auto mb-4"
-          />
+                     width={35}
+                     height={35}
+                     className="h-10 w-auto"
+                     priority
+                   />
           <p className="text-gray-600 max-w-2xl mx-auto">
             Platform layanan service terpercaya untuk perangkat elektronik Anda. Kami menghubungkan Anda dengan teknisi profesional terbaik.
           </p>
