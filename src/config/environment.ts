@@ -1,8 +1,6 @@
 export const environment = {
-  apiUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api',
-  env: process.env.NEXT_PUBLIC_ENV || 'development',
-  isDevelopment: process.env.NEXT_PUBLIC_ENV === 'development',
-  isProduction: process.env.NEXT_PUBLIC_ENV === 'production',
+  production: process.env.NODE_ENV === 'production',
+  apiUrl: process.env.NEXT_PUBLIC_API_URL,
+  escuelaJsApi: 'https://api.escuelajs.co/api/v1',
+  googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
 };
-
-export default environment;

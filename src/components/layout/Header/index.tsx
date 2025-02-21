@@ -17,7 +17,7 @@ const Header = () => {
               alt="GizMap Logo"
               width={128}
               height={40}
-              className="w-32 h-10"
+              className="h-10"
               priority
             />
           </Link>

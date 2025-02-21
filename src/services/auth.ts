@@ -1,5 +1,3 @@
-import { API_ENDPOINTS } from '@/config/api';
-
 interface LoginCredentials {
   email: string;
   password: string;
@@ -11,7 +9,7 @@ interface LoginResponse {
 }
 
 export async function login(credentials: LoginCredentials): Promise<LoginResponse> {
-  const response = await fetch(API_ENDPOINTS.auth.login, {
+  const response = await fetch('/api/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,21 +26,12 @@ export async function login(credentials: LoginCredentials): Promise<LoginRespons
 }
 
 export async function logout(): Promise<void> {
-  const response = await fetch(API_ENDPOINTS.auth.logout, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || 'Failed to logout');
-  }
+  // For now, we'll just handle client-side logout
+  // You can implement server-side logout later if needed
 }
 
 export async function register(credentials: LoginCredentials): Promise<LoginResponse> {
-  const response = await fetch(API_ENDPOINTS.auth.register, {
+  const response = await fetch('/api/escuelajs/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

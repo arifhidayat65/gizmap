@@ -1,9 +1,6 @@
 import './globals.scss'
 import '../styles/custom.css'
 import '../styles/buttons.css'
-import Header from '../components/layout/Header'
-import Footer from '../components/layout/Footer/Footer'
-import BackToTop from '../components/BackToTop'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 
@@ -51,12 +48,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <BackToTop />
+        {children}
       </body>
     </html>
   )

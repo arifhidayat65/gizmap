@@ -1,14 +1,14 @@
 'use client'
 
-import HeroSlider from '../components/HeroSlider'
-import ProductCard from '../components/ProductCard'
-import BlogCard from '../components/BlogCard'
-import { products, serviceCategories } from '../data/products'
-import { blogPosts } from '../data/blogs'
-import '../styles/home.scss'
-import ServiceIcon from '../components/common/Icon/ServiceIcon'
+import HeroSlider from '@/components/HeroSlider'
+import ProductCard from '@/components/ProductCard'
+import BlogCard from '@/components/BlogCard'
+import { products, serviceCategories } from '@/data/products'
+import { blogPosts } from '@/data/blogs'
+import '@/styles/home.scss'
+import ServiceIcon from '@/components/common/Icon/ServiceIcon'
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main>
       {/* Hero Section */}
