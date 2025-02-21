@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
-import { escuelajsServerApi } from '../../../../services/escuelajs.server';
 import type { NextRequest } from 'next/server';
+import { escuelajsApi } from '../../../../services/escuelajs';
+
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export async function GET(request: NextRequest) {
   try {
-    const user = await escuelajsServerApi.getProfile();
+    const user = await escuelajsApi.getProfile();
     
     return NextResponse.json({
       success: true,
@@ -49,7 +52,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    const updatedUser = await escuelajsServerApi.updateProfile(data);
+    const updatedUser = await escuelajsApi.updateProfile(data);
     
     return NextResponse.json({
       success: true,

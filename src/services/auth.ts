@@ -1,4 +1,5 @@
 import { API_ENDPOINTS } from '../config/api';
+import { escuelajsApi } from './escuelajs';
 
 interface LoginCredentials {
   email: string;
@@ -11,33 +12,19 @@ interface LoginResponse {
 }
 
 export async function login(credentials: LoginCredentials): Promise<LoginResponse> {
-  const response = await fetch('/api/auth/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(credentials),
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || 'Failed to login');
+  try {
+    const response = await escuelajsApi.login(credentials);
+    return response;
+  } catch (error) {
+    throw new Error('Failed to login');
   }
-
-  const { data } = await response.json();
-  return data;
 }
 
 export async function logout(): Promise<void> {
-  const response = await fetch('/api/auth/logout', {
-    method: 'POST',
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || 'Failed to logout');
-  }
-
+  // Clear any auth tokens or state
+  localStorage.removeItem('access_token');
+  localStorage.removeItem('refresh_token');
+  
   // Redirect to login page
   window.location.href = '/login';
 }
