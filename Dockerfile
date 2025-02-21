@@ -31,6 +31,9 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Install curl for healthcheck
+RUN apk add --no-cache curl
+
 COPY --from=builder /app/public ./public
 
 # Set the correct permission for prerender cache
@@ -43,9 +46,15 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
+# Expose port for direct access (though we'll use nginx)
 EXPOSE 3000
 
 ENV PORT 3000
+# Listen on all network interfaces
 ENV HOSTNAME "0.0.0.0"
+
+# Add healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:3000/ || exit 1
 
 CMD ["node", "server.js"]
