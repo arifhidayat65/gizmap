@@ -1,189 +1,136 @@
-/* Custom CSS Variables */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-:root {
-  /* Colors */
-  --primary-color: #22c55e;
-  --secondary-color: #ff6b18;
-  --neutral-50: #fdfdfd;
-  --neutral-100: #f7f7f7;
-  --neutral-400: #9a9a9a;
-  --neutral-500: #757575;
-  --neutral-600: #575757;
-  --neutral-900: #141414;
-
-  /* Fonts */
-  --font-montserrat: 'Montserrat', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
-
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-}
-
-/* Base Styles */
-body {
-  font-family: 'Inter', var(--font-roboto);
-  color: var(--neutral-900);
-  line-height: 1.5;
-  padding-top: 72px;
-  background-color: #f8fafc;
-}
-
-/* Container */
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+@layer components {
+  /* Footer Styles */
+  .text-primary {
+    @apply text-[#42b549];
   }
-}
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
+  .hover\:text-primary:hover {
+    @apply text-[#42b549];
   }
-}
 
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
+  .social-icon-facebook {
+    @apply transition-colors duration-300;
+    &:hover {
+      @apply text-[#1877F2];
+    }
   }
-}
 
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
+  .social-icon-twitter {
+    @apply transition-colors duration-300;
+    &:hover {
+      @apply text-[#1DA1F2];
+    }
   }
-}
 
-/* Navigation Styles */
-.nav-link, .common-menu {
-  position: relative;
-  padding: 0.5rem;
-  color: var(--neutral-600);
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.nav-link:hover, .common-menu:hover {
-  color: var(--primary-color);
-}
-
-/* Blog Navigation Styles */
-.blog-nav-link {
-  position: relative;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  padding: 0.5rem 0;
-  display: inline-block;
-  color: var(--neutral-600);
-}
-
-.blog-nav-link:hover {
-  color: var(--primary-color);
-}
-
-.blog-nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: all 0.3s ease;
-  opacity: 0;
-}
-
-.blog-nav-link:hover::after {
-  width: 100%;
-  opacity: 1;
-}
-
-/* Search Input Styles */
-.search-input {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  padding-right: 2.5rem;
-  border: 1px solid var(--neutral-200);
-  border-radius: 9999px;
-  transition: all 0.2s ease;
-  background-color: transparent;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(35, 61, 144, 0.1);
-}
-
-.search-icon {
-  color: var(--neutral-400);
-  transition: color 0.2s ease;
-}
-
-.search-input:focus + button .search-icon {
-  color: var(--primary-color);
-}
-
-/* Form Select Styles */
-.form-select {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--neutral-200);
-  border-radius: 0.5rem;
-  color: var(--neutral-600);
-  background-color: transparent;
-  transition: all 0.2s ease;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3e%3cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke='%23575757' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
-  background-position: right 0.5rem center;
-  background-repeat: no-repeat;
-  background-size: 1.5em 1.5em;
-}
-
-.form-select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(35, 61, 144, 0.1);
-}
-
-/* Social Media Icons */
-.social-icon-facebook {
-  @apply hover:text-[#1877F2] transition-colors duration-200;
-}
-
-.social-icon-twitter {
-  @apply hover:text-[#1DA1F2] transition-colors duration-200;
-}
-
-.social-icon-instagram {
-  @apply hover:text-[#E4405F] transition-colors duration-200;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .blog-nav-link {
-    padding: 0.5rem 0;
+  .social-icon-instagram {
+    @apply transition-colors duration-300;
+    &:hover {
+      @apply text-[#E4405F];
+    }
   }
-  
-  .search-input {
-    font-size: 0.875rem;
+
+  /* Footer Links */
+  .footer-link {
+    @apply text-neutral-600 hover:text-[#42b549] transition-colors duration-300 
+           flex items-center space-x-2;
+
+    svg {
+      @apply text-[#42b549];
+    }
   }
-  
-  .form-select {
-    font-size: 0.875rem;
+
+  /* Footer Grid */
+  .footer-grid {
+    @apply grid md:grid-cols-4 gap-8;
+  }
+
+  .footer-title {
+    @apply text-lg font-bold mb-4 text-gray-900;
+  }
+
+  .footer-text {
+    @apply text-neutral-600;
+  }
+
+  /* Footer Contact */
+  .footer-contact {
+    @apply flex items-start space-x-2;
+
+    svg {
+      @apply text-[#42b549] flex-shrink-0;
+    }
+
+    span {
+      @apply text-neutral-600;
+    }
+  }
+
+  /* Footer Service Icons */
+  .service-icon {
+    @apply w-5 h-5 mr-2 text-[#42b549];
+  }
+
+  /* Footer Container */
+  .footer-container {
+    @apply bg-gradient-to-b from-white to-gray-100 mt-8;
+  }
+
+  .footer-content {
+    @apply container mx-auto py-12 px-4;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-grid {
+      @apply grid-cols-2 gap-6;
+    }
+
+    .footer-content {
+      @apply py-8 px-4;
+    }
+
+    .footer-contact {
+      svg {
+        @apply w-5 h-5;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      @apply grid-cols-1 gap-8;
+    }
+
+    .footer-title {
+      @apply text-base;
+    }
+
+    .footer-text {
+      @apply text-sm;
+    }
+  }
+
+  /* Link Hover Effects */
+  .hover-link {
+    @apply relative;
+    
+    &::after {
+      content: '';
+      @apply absolute bottom-0 left-0 w-0 h-0.5 bg-[#42b549] 
+             transition-all duration-300;
+    }
+    
+    &:hover::after {
+      @apply w-full;
+    }
+  }
+
+  /* Icon Transitions */
+  .icon-transition {
+    @apply transition-transform duration-300;
+    
+    &:hover {
+      @apply transform scale-110;
+    }
   }
 }

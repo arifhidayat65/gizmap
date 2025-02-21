@@ -31,8 +31,8 @@ export default function DashboardLayout({
       <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg">
         <div className="p-4 border-b border-gray-200">
           <Image 
-            src="https://storage.googleapis.com/a1aa/image/iXtFY1DZexD4cqlIXBWX512jh_Z5X7WhF_f1VWTwmXw.jpg"
-            alt="GizMap logo"
+           src="/izmap.svg"
+              alt="GizMap Logo"
             width={32}
             height={32}
             className="h-8 w-auto"

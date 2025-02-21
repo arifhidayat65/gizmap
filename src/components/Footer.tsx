@@ -9,8 +9,8 @@ const Footer = () => {
         {/* Logo and Description */}
         <div className="text-center mb-12">
           <Image 
-            src="https://storage.googleapis.com/a1aa/image/VxpCM8raYpdarrf1ddTz3040jv18FvFiXSWIPqb1-GQ.jpg"
-            alt="GizMap logo"
+                src="/izmap.svg"
+              alt="GizMap Logo"
             width={48}
             height={48}
             className="h-12 w-auto mx-auto mb-4"

@@ -1,28 +1,88 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
-import SocialIcon from '../../../common/Icon/SocialIcon'
-import { socialIcons } from '../../../../constants/footer'
 
-const CompanyInfo = () => (
-  <div className="col-span-1">
-    <Link href="/">
-      <Image
-        src="/izmap.svg"
-        alt="GizMap Logo"
-        width={120}
-        height={40}
-        className="h-10 w-auto mb-4"
-      />
-    </Link>
-    <p className="text-neutral-600 mb-4">
-      Platform layanan service terpercaya untuk perangkat elektronik Anda
-    </p>
-    <div className="flex space-x-4">
-      {Object.entries(socialIcons).map(([key, { path, href, className }]) => (
-        <SocialIcon key={key} path={path} href={href} className={className} />
-      ))}
+const CompanyInfo = () => {
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      url: 'https://www.facebook.com/profile.php?id=100069583462410',
+      icon: 'facebook',
+      hoverColor: 'hover:bg-[#1877F2]'
+    },
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/gadgetklinik',
+      icon: 'instagram',
+      hoverColor: 'hover:bg-[#E4405F]'
+    },
+    {
+      name: 'Twitter',
+      url: 'https://twitter.com/gizmap',
+      icon: 'twitter',
+      hoverColor: 'hover:bg-[#1DA1F2]'
+    },
+    {
+      name: 'WhatsApp',
+      url: 'https://wa.me/your-number',
+      icon: 'whatsapp',
+      hoverColor: 'hover:bg-[#25D366]'
+    }
+  ]
+
+  return (
+    <div className="space-y-6">
+      <Link href="/" className="block">
+        <Image
+           src="/izmap.svg"
+              alt="GizMap Logo"
+          width={120}
+          height={40}
+          className="object-contain"
+        />
+      </Link>
+      
+      <p className="text-gray-600">
+        Solusi terpercaya untuk perbaikan dan perawatan gadget Anda. Teknisi profesional dan layanan berkualitas.
+      </p>
+
+      <div className="flex space-x-4">
+        {socialLinks.map((social) => (
+          <a
+            key={social.name}
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`w-10 h-10 flex items-center justify-center rounded-full 
+                       text-neutral-600 hover:text-white transition-all duration-300 
+                       ${social.hoverColor}`}
+            aria-label={`Follow us on ${social.name}`}
+          >
+            <i className={`bi bi-${social.icon} text-xl`}></i>
+          </a>
+        ))}
+      </div>
+
+      <div className="space-y-3">
+        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" 
+           className="footer-contact hover:text-[#42b549] transition-colors duration-300">
+          <i className="bi bi-geo-alt"></i>
+          <span>Jl. Contoh No. 123, Jakarta</span>
+        </a>
+        <a href="tel:+6212345678" 
+           className="footer-contact hover:text-[#42b549] transition-colors duration-300">
+          <i className="bi bi-telephone"></i>
+          <span>+62 123 4567 890</span>
+        </a>
+        <a href="mailto:info@gizmap.com" 
+           className="footer-contact hover:text-[#42b549] transition-colors duration-300">
+          <i className="bi bi-envelope"></i>
+          <span>info@gizmap.com</span>
+        </a>
+      </div>
     </div>
-  </div>
-);
+  )
+}
 
-export default CompanyInfo;
+export default CompanyInfo
