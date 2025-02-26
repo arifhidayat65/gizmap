@@ -10,7 +10,7 @@ const LocationMap = () => {
         style={{ border: 'none' }}
         allowFullScreen
         loading="lazy"
-        title="GizMap Location"
+        title="GSM Promo Location"
       />
     </div>
   )

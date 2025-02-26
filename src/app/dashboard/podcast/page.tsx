@@ -17,7 +17,7 @@ export default function PodcastPage() {
     <div>
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Gizmap Podcast</h1>
+        <h1 className="text-2xl font-bold text-gray-800">GSM Promo Podcast</h1>
         <p className="text-gray-600">Manage and monitor your podcast content</p>
       </div>
 

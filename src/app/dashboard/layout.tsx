@@ -32,8 +32,8 @@ export default function DashboardLayout({
         <div className="p-4 border-b border-gray-200">
           <Link href="/">
             <Image 
-              src="/images/izmap.svg"
-              alt="GizMap Logo"
+              src="/images/gsmpromo1.svg"
+              alt="GsmPromo Logo"
               width={32}
               height={32}
               className="h-8 w-auto hover:opacity-80 transition-opacity"

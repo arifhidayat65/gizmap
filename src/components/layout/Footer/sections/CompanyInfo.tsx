@@ -19,7 +19,7 @@ const CompanyInfo = () => {
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/gizmap',
+      url: 'https://twitter.com/gsmpromo',
       icon: 'twitter',
       hoverColor: 'hover:bg-[#1DA1F2]'
     },
@@ -36,7 +36,7 @@ const CompanyInfo = () => {
       <Link href="/" className="block">
         <Image
            src="/izmap.svg"
-              alt="GizMap Logo"
+              alt="gsmpromo Logo"
           width={120}
           height={40}
           className="object-contain"
@@ -75,10 +75,10 @@ const CompanyInfo = () => {
           <i className="bi bi-telephone"></i>
           <span>+62 123 4567 890</span>
         </a>
-        <a href="mailto:info@gizmap.com" 
+        <a href="mailto:info@gsmpromo.com" 
            className="footer-contact hover:text-[#42b549] transition-colors duration-300">
           <i className="bi bi-envelope"></i>
-          <span>info@gizmap.com</span>
+          <span>info@gsmpromo.com</span>
         </a>
       </div>
     </div>

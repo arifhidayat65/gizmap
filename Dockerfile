@@ -12,11 +12,12 @@ RUN apk add --no-cache \
 WORKDIR /app
 
 # Copy package files
-COPY package.json package-lock.json ./
+COPY package*.json ./
 
-# Install dependencies
+# Clean install dependencies
 ENV PYTHON=/usr/bin/python3
-RUN npm install --legacy-peer-deps
+RUN npm cache clean --force && \
+    npm install --production=false --force
 
 # Rebuild the source code only when needed
 FROM base AS builder

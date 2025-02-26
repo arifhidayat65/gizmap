@@ -14,14 +14,14 @@ const SEO = ({
   title,
   description,
   keywords = [],
-  image = '/GizMap.png',
+  image = '/gsmpromo.png',
   type = 'website',
   author,
   publishedTime,
   modifiedTime,
   noIndex = false
 }: SEOProps) => {
-  const siteName = 'GizMap Blog'
+  const siteName = 'GSM Promo Blog'
   const fullTitle = `${title} | ${siteName}`
 
   return (

@@ -10,7 +10,7 @@ export default function AboutUsPage() {
       <main className="container mx-auto px-4 py-12 mt-20">
         {/* Hero Section */}
         <section className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4 text-primary">About GizMap</h1>
+          <h1 className="text-4xl font-bold mb-4 text-primary">About GSM Promo</h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
             Platform layanan service terpercaya untuk perangkat elektronik Anda
           </p>
@@ -38,7 +38,7 @@ export default function AboutUsPage() {
 
         {/* Why Choose Us */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8 text-primary">Why Choose GizMap</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-primary">Why Choose GsmPromo</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="custom-card p-6 text-center">
               <div className="mb-4 flex justify-center">
@@ -95,7 +95,7 @@ export default function AboutUsPage() {
             <div className="text-center">
               <div className="mb-4 relative w-48 h-48 mx-auto">
                 <Image
-                  src="/assets/image/austin-distel-Hg3BHX6U5jg-unsplash.jpg"
+                  src="/images/austin-distel-Hg3BHX6U5jg-unsplash.jpg"
                   alt="Team Member"
                   fill
                   className="rounded-full object-cover"
@@ -107,7 +107,7 @@ export default function AboutUsPage() {
             <div className="text-center">
               <div className="mb-4 relative w-48 h-48 mx-auto">
                 <Image
-                  src="/assets/image/cowomen-UUPpu2sYV6E-unsplash.jpg"
+                  src="/images/cowomen-UUPpu2sYV6E-unsplash.jpg"
                   alt="Team Member"
                   fill
                   className="rounded-full object-cover"
@@ -119,7 +119,7 @@ export default function AboutUsPage() {
             <div className="text-center">
               <div className="mb-4 relative w-48 h-48 mx-auto">
                 <Image
-                  src="/assets/image/juja-han-uT55XxQLQGU-unsplash.jpg"
+                  src="/images/juja-han-uT55XxQLQGU-unsplash.jpg"
                   alt="Team Member"
                   fill
                   className="rounded-full object-cover"
@@ -131,7 +131,7 @@ export default function AboutUsPage() {
             <div className="text-center">
               <div className="mb-4 relative w-48 h-48 mx-auto">
                 <Image
-                  src="/assets/image/kit-formerly-convertkit-BOI9jki3nzY-unsplash.jpg"
+                  src="/images/kit-formerly-convertkit-BOI9jki3nzY-unsplash.jpg"
                   alt="Team Member"
                   fill
                   className="rounded-full object-cover"
@@ -150,7 +150,7 @@ export default function AboutUsPage() {
             <LocationMap />
             <div className="mt-6 text-center">
               <p className="text-lg text-neutral-600 mb-2">
-                GizMap Headquarters
+                Gsm Promo Headquarters
               </p>
               <p className="text-neutral-600">
                 Jl. Sudirman No. 123<br />
@@ -168,7 +168,7 @@ export default function AboutUsPage() {
             Have questions? We&apos;d love to hear from you.
           </p>
           <a 
-            href="mailto:contact@gizmap.com"
+            href="mailto:contact@gsmpromo.com"
             className="custom-button custom-button-primary inline-block"
           >
             Contact Us

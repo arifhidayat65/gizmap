@@ -39,10 +39,10 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/izmap.svg"
-              alt="GizMap Logo"
-              width={350}
-              height={350}
+              src="/images/fix.svg"
+              alt="GSM Promo"
+              width={450}
+              height={500}
               className="h-10 w-auto"
               priority
             />

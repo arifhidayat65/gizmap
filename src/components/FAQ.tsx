@@ -5,8 +5,8 @@ import { useState } from 'react'
 const faqs = [
   {
     id: 1,
-    question: "Bagaimana cara mendaftar sebagai teknisi di Gizmap?",
-    answer: "Untuk mendaftar sebagai teknisi di Gizmap, Anda perlu mengisi formulir pendaftaran online dan melampirkan dokumen yang diperlukan seperti sertifikat keahlian dan pengalaman kerja."
+    question: "Bagaimana cara mendaftar sebagai teknisi di Gsm Promo?",
+    answer: "Untuk mendaftar sebagai teknisi di Gsm Promo, Anda perlu mengisi formulir pendaftaran online dan melampirkan dokumen yang diperlukan seperti sertifikat keahlian dan pengalaman kerja."
   },
   {
     id: 2,
@@ -16,12 +16,12 @@ const faqs = [
   {
     id: 3,
     question: "Apakah ada garansi untuk layanan perbaikan?",
-    answer: "Ya, setiap layanan perbaikan di Gizmap memiliki garansi servis selama 30 hari untuk memberikan jaminan kualitas kepada pelanggan."
+    answer: "Ya, setiap layanan perbaikan di Gsm Promo memiliki garansi servis selama 30 hari untuk memberikan jaminan kualitas kepada pelanggan."
   },
   {
     id: 4,
-    question: "Bagaimana sistem pembayaran di Gizmap?",
-    answer: "Gizmap menerima berbagai metode pembayaran termasuk transfer bank, e-wallet, dan pembayaran tunai. Pembayaran dilakukan setelah perbaikan selesai."
+    question: "Bagaimana sistem pembayaran di Gsm Promo?",
+    answer: "Gsm Promo menerima berbagai metode pembayaran termasuk transfer bank, e-wallet, dan pembayaran tunai. Pembayaran dilakukan setelah perbaikan selesai."
   }
 ]
 

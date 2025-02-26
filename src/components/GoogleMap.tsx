@@ -58,7 +58,7 @@ const GoogleMap = () => {
         const markerOptions: MarkerOptions = {
           position: location,
           map: map,
-          title: "GizMap Headquarters"
+          title: "Gsm Promo Headquarters"
         }
         new window.google.maps.Marker(markerOptions)
       }

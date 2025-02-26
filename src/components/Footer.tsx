@@ -9,9 +9,9 @@ const Footer = () => {
         {/* Logo and Description */}
         <div className="text-center mb-12">
             <Image
-              src="/images/izmap.svg"
-              alt="GizMap Logo"
-                     width={35}
+              src="/images/fix.svg"
+              alt="Gsm Promo Logo"
+                     width={135}
                      height={35}
                      className="h-10 w-auto"
                      priority
@@ -24,7 +24,7 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold mb-6 text-green-500">About GizMap</h3>
+            <h3 className="text-lg font-bold mb-6 text-green-500">About Gsm Promo</h3>
             <ul className="space-y-3">
               <li className="text-gray-600 hover:text-green-500 transition-colors duration-300 cursor-pointer">Our Story</li>
               <li className="text-gray-600 hover:text-green-500 transition-colors duration-300 cursor-pointer">Team</li>
@@ -58,7 +58,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center justify-center md:justify-start text-gray-600 hover:text-green-500 transition-colors duration-300">
                 <i className="bi bi-envelope w-8"></i>
-                info@gizmap.com
+                info@gsmpromo.com
               </li>
               <li className="flex items-center justify-center md:justify-start text-gray-600 hover:text-green-500 transition-colors duration-300">
                 <i className="bi bi-telephone w-8"></i>
@@ -90,7 +90,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-200 mt-8 pt-8 text-center">
-          <p className="text-gray-500">&copy; {new Date().getFullYear()} GizMap. All rights reserved.</p>
+          <p className="text-gray-500">&copy; {new Date().getFullYear()} GsmPromo. All rights reserved.</p>
           <div className="flex justify-center space-x-8 mt-4 text-sm text-gray-500">
             <a href="#" className="hover:text-green-500 transition-colors duration-300">Privacy Policy</a>
             <a href="#" className="hover:text-green-500 transition-colors duration-300">Terms of Service</a>

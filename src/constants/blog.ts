@@ -19,8 +19,8 @@ export const BLOG_CONFIG = {
   featuredPostsLimit: 4,
   searchPlaceholder: 'Search articles...',
   defaultMetadata: {
-    title: 'Blog - GizMap',
-    description: 'Latest articles and updates from GizMap'
+    title: 'Blog - Gsm Promo',
+    description: 'Latest articles and updates from Gsm Promo'
   }
 } as const
 

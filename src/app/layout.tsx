@@ -3,9 +3,12 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'GizMap - Dashboard',
-  description: 'GizMap Dashboard and Profile Management',
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'GSM PROMO - Dashboard',
+  description: 'GSM PROMO Dashboard and Profile Management',
 }
 
 export default function RootLayout({
@@ -14,14 +17,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
-      </head>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   )
 }

@@ -8,11 +8,11 @@ export const blogPosts: BlogPost[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     author: {
       name: 'John Doe',
-      avatar: '/assets/images/austin-distel-Hg3BHX6U5jg-unsplash.jpg',
+      avatar: '/images/austin-distel-Hg3BHX6U5jg-unsplash.jpg',
       role: 'Technical Writer'
     },
     publishedAt: '2023-12-01T08:00:00Z',
-    imageUrl: '/assets/images/IT-repairing-the-broken-computer-768x513.jpeg',
+    imageUrl: '/images/IT-repairing-the-broken-computer-768x513.jpeg',
     category: 'maintenance',
     tags: ['laptop', 'maintenance', 'tips'],
     readTime: 5,
@@ -26,11 +26,11 @@ export const blogPosts: BlogPost[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     author: {
       name: 'Jane Smith',
-      avatar: '/assets/images/cowomen-UUPpu2sYV6E-unsplash.jpg',
+      avatar: '/images/cowomen-UUPpu2sYV6E-unsplash.jpg',
       role: 'System Engineer'
     },
     publishedAt: '2023-12-02T10:30:00Z',
-    imageUrl: '/assets/images/juja-han-uT55XxQLQGU-unsplash.jpg',
+    imageUrl: '/images/juja-han-uT55XxQLQGU-unsplash.jpg',
     category: 'troubleshooting',
     tags: ['windows', 'troubleshooting', 'BSOD'],
     readTime: 8,
@@ -44,11 +44,11 @@ export const blogPosts: BlogPost[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     author: {
       name: 'Mike Johnson',
-      avatar: '/assets/images/juja-han-uT55XxQLQGU-unsplash.jpg',
+      avatar: '/images/juja-han-uT55XxQLQGU-unsplash.jpg',
       role: 'IT Specialist'
     },
     publishedAt: '2023-12-03T14:15:00Z',
-    imageUrl: '/assets/images/kit-formerly-convertkit-BOI9jki3nzY-unsplash.jpg',
+    imageUrl: '/images/kit-formerly-convertkit-BOI9jki3nzY-unsplash.jpg',
     category: 'guide',
     tags: ['windows', 'installation', 'guide'],
     readTime: 10,
