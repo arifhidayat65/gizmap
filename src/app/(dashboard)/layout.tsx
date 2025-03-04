@@ -30,12 +30,7 @@ export default function DashboardLayout({
           >
             Overview
           </Link>
-          <Link 
-            href="/dashboard/podcast"
-            className="block py-2 px-4 rounded hover:bg-gray-700 transition-colors"
-          >
-            Podcasts
-          </Link>
+    
           <Link 
             href="/profile"
             className="block py-2 px-4 rounded hover:bg-gray-700 transition-colors"

@@ -44,7 +44,6 @@ export default function DashboardLayout({
           {[
             { href: '/', icon: 'home', label: 'Home' },
             { href: '/dashboard', icon: 'chart-bar', label: 'Dashboard' },
-            { href: '/dashboard/podcast', icon: 'podcast', label: 'Podcasts' },
             { href: '/dashboard/analytics', icon: 'chart-line', label: 'Analytics' },
             { href: '/dashboard/profile', icon: 'user', label: 'Profile' },
             { href: '/dashboard/settings', icon: 'cog', label: 'Settings' },
